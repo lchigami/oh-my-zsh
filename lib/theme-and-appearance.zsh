@@ -12,6 +12,7 @@ then
     gls --color -d . &>/dev/null 2>&1 && alias ls='gls --color=tty'
   elif [[ "$(uname -s)" == "OpenBSD" ]]; then
 <<<<<<< HEAD
+<<<<<<< HEAD
     # On OpenBSD, "gls" (ls from GNU coreutils) and "colorls" (ls from base,
     # with color and multibyte support) are available from ports.  "colorls"
     # will be installed on purpose and can't be pulled in by installing
@@ -20,6 +21,11 @@ then
     # with color and multibyte support) are available from ports.  "colorls"  
     # will be installed on purpose and can't be pulled in by installing 
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+    # On OpenBSD, "gls" (ls from GNU coreutils) and "colorls" (ls from base,
+    # with color and multibyte support) are available from ports.  "colorls"
+    # will be installed on purpose and can't be pulled in by installing
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     # coreutils, so prefer it to "gls".
     gls --color -d . &>/dev/null 2>&1 && alias ls='gls --color=tty'
     colorls -G -d . &>/dev/null 2>&1 && alias ls='colorls -G'
@@ -29,6 +35,7 @@ then
 fi
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 setopt auto_cd
 setopt multios
 =======
@@ -37,6 +44,10 @@ setopt auto_cd
 setopt multios
 setopt cdablevars
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+setopt auto_cd
+setopt multios
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 
 if [[ x$WINDOW != x ]]
 then

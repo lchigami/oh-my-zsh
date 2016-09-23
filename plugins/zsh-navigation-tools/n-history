@@ -16,6 +16,9 @@ local IFS="
 "
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 # Variables to save list's state when switching views
 # The views are: history and "most frequent history words"
 local one_NLIST_FROM_WHAT_IDX_LIST_IS_SHOWN
@@ -333,6 +336,7 @@ while (( 1 )); do
         fi
     fi
 done
+<<<<<<< HEAD
 =======
 unset NLIST_COLORING_PATTERN
 
@@ -356,12 +360,17 @@ local NLIST_GREP_STRING="$1"
 local NLIST_REPLACE_NEWLINES="1"
 n-list "${list[@]}"
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 
 if [ "$REPLY" -gt 0 ]; then
     selected="$reply[REPLY]"
     # ZLE?
     if [ "${(t)CURSOR}" = "integer-local-special" ]; then
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
         zle .redisplay
         zle .kill-buffer
         LBUFFER+="$selected"
@@ -372,6 +381,7 @@ if [ "$REPLY" -gt 0 ]; then
         [ "$active_view" = "0" ] && print -r -- "$selected" >> "$private_history_db"
     else
         print -zr -- "$selected"
+<<<<<<< HEAD
 =======
         zle redisplay
         zle kill-buffer
@@ -379,6 +389,8 @@ if [ "$REPLY" -gt 0 ]; then
     else
         print -zr "$selected"
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     fi
 else
     [ "${(t)CURSOR}" = "integer-local-special" ] && zle redisplay

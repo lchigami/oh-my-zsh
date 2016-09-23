@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 if ! (( $+commands[yaourt] )); then
   upgrade() {
     sudo pacman -Syu
@@ -71,6 +74,7 @@ paclist() {
 pacdisowned() {
   emulate -L zsh
 
+<<<<<<< HEAD
 =======
 # Archlinux zsh aliases and functions
 # Usage is also described at https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins
@@ -145,6 +149,8 @@ alias pacrmorphans='sudo pacman -Rs $(pacman -Qtdq)'
 
 pacdisowned() {
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
   tmp=${TMPDIR-/tmp}/pacman-disowned-$UID-$$
   db=$tmp/db
   fs=$tmp/fs
@@ -155,6 +161,7 @@ pacdisowned() {
   pacman -Qlq | sort -u > "$db"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   find /bin /etc /lib /sbin /usr ! -name lost+found \
     \( -type d -printf '%p/\n' -o -print \) | sort > "$fs"
 =======
@@ -162,12 +169,19 @@ pacdisowned() {
       ! -name lost+found \
         \( -type d -printf '%p/\n' -o -print \) | sort > "$fs"
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+  find /bin /etc /lib /sbin /usr ! -name lost+found \
+    \( -type d -printf '%p/\n' -o -print \) | sort > "$fs"
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 
   comm -23 "$fs" "$db"
 }
 
 pacmanallkeys() {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
   emulate -L zsh
   curl -s https://www.archlinux.org/people/{developers,trustedusers}/ | \
     awk -F\" '(/pgp.mit.edu/) { sub(/.*search=0x/,""); print $1}' | \
@@ -176,6 +190,7 @@ pacmanallkeys() {
 
 pacmansignkeys() {
   emulate -L zsh
+<<<<<<< HEAD
 =======
   # Get all keys for developers and trusted users
   curl https://www.archlinux.org/{developers,trustedusers}/ |
@@ -185,6 +200,8 @@ pacmansignkeys() {
 
 pacmansignkeys() {
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
   for key in $*; do
     sudo pacman-key --recv-keys $key
     sudo pacman-key --lsign-key $key

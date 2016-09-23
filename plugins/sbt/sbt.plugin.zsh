@@ -22,6 +22,10 @@ alias sbrm='sbt run-main'
 alias sbu='sbt update'
 alias sbx='sbt test'
 <<<<<<< HEAD
+<<<<<<< HEAD
 alias sba='sbt assembly'
 =======
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+alias sba='sbt assembly'
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6

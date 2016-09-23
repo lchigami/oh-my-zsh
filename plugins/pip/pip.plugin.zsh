@@ -77,8 +77,14 @@ zsh-pip-test-clean-packages() {
     fi
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 alias pip="noglob pip" # allows square brackets for pip command invocation
 
 =======
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+
+alias pip="noglob pip" # allows square brackets for pip command invocation
+
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6

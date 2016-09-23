@@ -23,6 +23,9 @@
 #Alias
 alias gfl='git flow'
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 alias gfli='git flow init'
 alias gcd='git checkout develop'
 alias gch='git checkout hotfix'
@@ -36,11 +39,14 @@ alias gflrs='git flow release start'
 alias gflff='git flow feature finish'
 alias gflhf='git flow hotfix finish'
 alias gflrf='git flow release finish'
+<<<<<<< HEAD
 =======
 alias gcd='git checkout develop'
 alias gch='git checkout hotfix'
 alias gcr='git checkout release'
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 
 _git-flow ()
 {

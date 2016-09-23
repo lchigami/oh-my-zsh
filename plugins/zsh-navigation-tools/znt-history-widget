@@ -5,6 +5,9 @@ local NLIST_START_IN_UNIQ_MODE=1
 # Only if current $BUFFER doesn't come from history
 if [ "$HISTCMD" = "$HISTNO" ]; then
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     () {
         setopt localoptions extendedglob
         local -a match mbegin mend
@@ -13,8 +16,11 @@ if [ "$HISTCMD" = "$HISTNO" ]; then
         [ -n "$BUFFER" ] && BUFFER="${BUFFER%% ##} "
     }
 
+<<<<<<< HEAD
 =======
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     local NLIST_SET_SEARCH_TO="$BUFFER"
 fi
 

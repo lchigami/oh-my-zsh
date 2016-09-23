@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 alias pjo="pj open"
 
 pj () {
     emulate -L zsh
+<<<<<<< HEAD
 
     cmd="cd"
     project=$1
@@ -54,6 +58,8 @@ function pj() {
             return
         fi
     done
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 
 <<<<<<< HEAD
     echo "No such project '${project}'."
@@ -64,6 +70,7 @@ _pj () {
 
     typeset -a projects
     for basedir ($PROJECT_PATHS); do
+<<<<<<< HEAD
         projects+=(${basedir}/*(/N))
     done
 
@@ -84,4 +91,25 @@ function _pj () {
 }
 
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+        if [[ -d "$basedir/$project" ]]; then
+            $cmd "$basedir/$project"
+            return
+        fi
+    done
+
+    echo "No such project '${project}'."
+}
+
+_pj () {
+    emulate -L zsh
+
+    typeset -a projects
+    for basedir ($PROJECT_PATHS); do
+        projects+=(${basedir}/*(/N))
+    done
+
+    compadd ${projects:t}
+}
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 compdef _pj pj

@@ -59,10 +59,14 @@ bundle_install() {
       if [[ "$OSTYPE" = darwin* ]]
       then
 <<<<<<< HEAD
+<<<<<<< HEAD
         local cores_num="$(sysctl -n hw.ncpu)"
 =======
         local cores_num="$(sysctl hw.ncpu | awk '{print $2}')"
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+        local cores_num="$(sysctl -n hw.ncpu)"
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
       else
         local cores_num="$(nproc)"
       fi

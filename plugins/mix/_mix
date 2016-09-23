@@ -39,6 +39,9 @@ _1st_arguments=(
     'local.rebar:Install rebar locally'
     'new:Create a new Elixir project'
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     'phoenix.digest:Digests and compress static files'
     'phoenix.gen.channel:Generates a Phoenix channel'
     'phoenix.gen.html:Generates controller, model and views for an HTML based resource'
@@ -48,8 +51,11 @@ _1st_arguments=(
     'phoenix.new:Create a new Phoenix application'
     'phoenix.routes:Prints all routes'
     'phoenix.server:Starts applications and their servers'
+<<<<<<< HEAD
 =======
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     'run:Run the given file or expression'
     "test:Run a project's tests"
     '--help:Describe available tasks'
@@ -62,10 +68,14 @@ __task_list ()
     declare -a tasks
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     tasks=(app.start archive archive.build archive.install archive.uninstall clean cmd compile compile.protocols deps deps.clean deps.compile deps.get deps.unlock deps.update do escript.build help hex hex.config hex.docs hex.info hex.key hex.outdated hex.owner hex.publish hex.search hex.user loadconfig local local.hex local.rebar new phoenix.digest phoenix.gen.channel phoenix.gen.html phoenix.gen.json phoenix.gen.model phoenix.gen.secret phoenix.new phoenix.routes phoenix.server run test)
 =======
     tasks=(app.start archive archive.build archive.install archive.uninstall clean cmd compile compile.protocols deps deps.clean deps.compile deps.get deps.unlock deps.update do escript.build help hex hex.config hex.docs hex.info hex.key hex.outdated hex.owner hex.publish hex.search hex.user loadconfig local local.hex local.rebar new run test)
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+    tasks=(app.start archive archive.build archive.install archive.uninstall clean cmd compile compile.protocols deps deps.clean deps.compile deps.get deps.unlock deps.update do escript.build help hex hex.config hex.docs hex.info hex.key hex.outdated hex.owner hex.publish hex.search hex.user loadconfig local local.hex local.rebar new phoenix.digest phoenix.gen.channel phoenix.gen.html phoenix.gen.json phoenix.gen.model phoenix.gen.secret phoenix.new phoenix.routes phoenix.server run test)
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 
     _wanted tasks expl 'help' compadd $tasks
 }
@@ -90,6 +100,9 @@ case $state in
       (help)
          _arguments ':feature:__task_list'
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
          ;;
       (test)
          _files
@@ -97,9 +110,12 @@ case $state in
     esac
   ;;
 esac
+<<<<<<< HEAD
 =======
     esac
   ;;
 esac
 
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6

@@ -105,9 +105,13 @@ __git_zsh_bash_func ()
 	local expansion=$(__git_aliased_command "$command")
 	if [ -n "$expansion" ]; then
 <<<<<<< HEAD
+<<<<<<< HEAD
 		words[1]=$expansion
 =======
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+		words[1]=$expansion
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 		completion_func="_git_${expansion//-/_}"
 		declare -f $completion_func >/dev/null && $completion_func
 	fi
@@ -218,14 +222,20 @@ _git ()
 	if (( $+functions[__${service}_zsh_main] )); then
 		__${service}_zsh_main
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 	elif (( $+functions[__${service}_main] )); then
 		emulate ksh -c __${service}_main
 	elif (( $+functions[_${service}] )); then
 		emulate ksh -c _${service}
+<<<<<<< HEAD
 =======
 	else
 		emulate ksh -c __${service}_main
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 	fi
 
 	let _ret && _default && _ret=0

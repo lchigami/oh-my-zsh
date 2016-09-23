@@ -1,10 +1,14 @@
 # Zsh Navigation Tools
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 https://raw.githubusercontent.com/psprint/zsh-navigation-tools/master/doc/img/n-history2.png
 =======
 http://imageshack.com/a/img633/7967/ps6rKR.png
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+https://raw.githubusercontent.com/psprint/zsh-navigation-tools/master/doc/img/n-history2.png
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 
 Set of tools like n-history – multi-word history searcher, n-cd – directory
 bookmark manager, n-kill – htop like kill utility, and more. Based on
@@ -37,6 +41,9 @@ Oh My Zsh stores history into ~/.zsh_history. When you switch to OMZ you could
 want to copy your previous data (from e.g. ~/.zhistory) into the new location.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 ## News
 
 * 30-04-2016
@@ -57,8 +64,11 @@ want to copy your previous data (from e.g. ~/.zhistory) into the new location.
        keywords (video: [https://youtu.be/DN9QqssAYB8](https://youtu.be/DN9QqssAYB8))
     3. Configuration option for doing instant selection in search mode
 
+<<<<<<< HEAD
 =======
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 ## Introduction
 
 The tools are:
@@ -88,6 +98,9 @@ cursors. Other keys are:
 - Ctrl-k (in incremental search) - delete whole line
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 ## Configuration
 
 `ZNT` has configuration files located in `~/.config/znt`. The files are:
@@ -147,8 +160,11 @@ znt_list_themes (array) - list of themes to try out with Ctrl-T, e.g. ( "white/b
 znt_list_instant_select - should pressing enter in search mode leave tool (0 or 1)
 ```
 
+<<<<<<< HEAD
 =======
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 ## Programming
 
 The function n-list is used as follows:

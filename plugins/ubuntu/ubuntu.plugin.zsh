@@ -64,10 +64,14 @@ alias kclean='sudo aptitude remove -P ?and(~i~nlinux-(ima|hea) \
 # Misc. #####################################################################
 # print all installed packages
 <<<<<<< HEAD
+<<<<<<< HEAD
 alias allpkgs='dpkg --get-selections | grep -v deinstall'
 =======
 alias allpkgs='aptitude search -F "%p" --disable-columns ~i'
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+alias allpkgs='dpkg --get-selections | grep -v deinstall'
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 
 # Create a basic .deb package
 alias mydeb='time dpkg-buildpackage -rfakeroot -us -uc'

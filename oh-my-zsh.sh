@@ -23,10 +23,14 @@ fi
 # or else we will use the default cache/
 if [[ -z "$ZSH_CACHE_DIR" ]]; then
 <<<<<<< HEAD
+<<<<<<< HEAD
   ZSH_CACHE_DIR="$ZSH/cache"
 =======
   ZSH_CACHE_DIR="$ZSH/cache/"
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+  ZSH_CACHE_DIR="$ZSH/cache"
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 fi
 
 

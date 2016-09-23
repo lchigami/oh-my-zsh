@@ -17,12 +17,17 @@ local IFS="
 unset NLIST_COLORING_PATTERN
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 [ -f ~/.config/znt/n-list.conf ] && builtin source ~/.config/znt/n-list.conf
 [ -f ~/.config/znt/n-cd.conf ] && builtin source ~/.config/znt/n-cd.conf
 =======
 [ -f ~/.config/znt/n-list.conf ] && . ~/.config/znt/n-list.conf
 [ -f ~/.config/znt/n-cd.conf ] && . ~/.config/znt/n-cd.conf
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+[ -f ~/.config/znt/n-list.conf ] && builtin source ~/.config/znt/n-list.conf
+[ -f ~/.config/znt/n-cd.conf ] && builtin source ~/.config/znt/n-cd.conf
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 
 local list
 local selected
@@ -59,6 +64,9 @@ if [ "$REPLY" -gt 0 ]; then
     (( NCD_DONT_PUSHD )) && setopt NO_AUTO_PUSHD
     cd "$selected"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     local code=$?
     (( NCD_DONT_PUSHD )) && setopt AUTO_PUSHD
 
@@ -69,6 +77,7 @@ if [ "$REPLY" -gt 0 ]; then
         else
             echo "You have selected $selected"
         fi
+<<<<<<< HEAD
 =======
     (( NCD_DONT_PUSHD )) && setopt AUTO_PUSHD
 
@@ -78,6 +87,8 @@ if [ "$REPLY" -gt 0 ]; then
     else
         echo "You have selected $selected"
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     fi
 else
     [ "${(t)CURSOR}" = "integer-local-special" ] && zle redisplay

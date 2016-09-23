@@ -72,10 +72,14 @@ exist_gh() { # [DIRECTORY]
 git.io() {
   emulate -L zsh
 <<<<<<< HEAD
+<<<<<<< HEAD
   curl -i -s https://git.io -F "url=$1" | grep "Location" | cut -f 2 -d " "
 =======
   curl -i -s http://git.io -F "url=$1" | grep "Location" | cut -f 2 -d " "
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+  curl -i -s https://git.io -F "url=$1" | grep "Location" | cut -f 2 -d " "
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 }
 
 # End Functions #############################################################

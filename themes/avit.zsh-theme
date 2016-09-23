@@ -3,6 +3,9 @@
 PROMPT='
 $(_user_host)${_current_dir} $(git_prompt_info) $(_ruby_version)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 %{$fg[$CARETCOLOR]%}▶%{$resetcolor%} '
 
 PROMPT2='%{$fg[$CARETCOLOR]%}◀%{$reset_color%} '
@@ -22,6 +25,7 @@ function _current_dir() {
   fi
 }
 
+<<<<<<< HEAD
 =======
 ▶ '
 
@@ -34,6 +38,8 @@ local _return_status="%{$fg[red]%}%(?..⍉)%{$reset_color%}"
 local _hist_no="%{$fg[grey]%}%h%{$reset_color%}"
 
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 function _user_host() {
   if [[ -n $SSH_CONNECTION ]]; then
     me="%n@%m"
@@ -55,10 +61,15 @@ function _ruby_version() {
   if {echo $fpath | grep -q "plugins/rvm"}; then
     echo "%{$fg[grey]%}$(rvm_prompt_info)%{$reset_color%}"
 <<<<<<< HEAD
+<<<<<<< HEAD
   elif {echo $fpath | grep -q "plugins/rbenv"}; then
     echo "%{$fg[grey]%}$(rbenv_prompt_info)%{$reset_color%}"
 =======
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+  elif {echo $fpath | grep -q "plugins/rbenv"}; then
+    echo "%{$fg[grey]%}$(rbenv_prompt_info)%{$reset_color%}"
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
   fi
 }
 
@@ -113,20 +124,28 @@ ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%}✖ "
 ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[blue]%}▴ "
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[cyan]%}§ "
 <<<<<<< HEAD
+<<<<<<< HEAD
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[white]%}◒ "
 =======
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[grey]%}◒ "
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[white]%}◒ "
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 
 # Colors vary depending on time lapsed.
 ZSH_THEME_GIT_TIME_SINCE_COMMIT_SHORT="%{$fg[green]%}"
 ZSH_THEME_GIT_TIME_SHORT_COMMIT_MEDIUM="%{$fg[yellow]%}"
 ZSH_THEME_GIT_TIME_SINCE_COMMIT_LONG="%{$fg[red]%}"
 <<<<<<< HEAD
+<<<<<<< HEAD
 ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL="%{$fg[white]%}"
 =======
 ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL="%{$fg[grey]%}"
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL="%{$fg[white]%}"
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 
 # LS colors, made with http://geoff.greer.fm/lscolors/
 export LSCOLORS="exfxcxdxbxegedabagacad"

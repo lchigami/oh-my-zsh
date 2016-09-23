@@ -11,10 +11,14 @@
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 if "$ZSH/tools/require_tool.sh" emacs 24 2>/dev/null ; then
 =======
 if "$ZSH/tools/require_tool.sh" emacs 23 2>/dev/null ; then
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+if "$ZSH/tools/require_tool.sh" emacs 24 2>/dev/null ; then
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     export EMACS_PLUGIN_LAUNCHER="$ZSH/plugins/emacs/emacsclient.sh"
 
     # set EDITOR if not already defined.
@@ -23,10 +27,15 @@ if "$ZSH/tools/require_tool.sh" emacs 23 2>/dev/null ; then
     alias emacs="$EMACS_PLUGIN_LAUNCHER --no-wait"
     alias e=emacs
 <<<<<<< HEAD
+<<<<<<< HEAD
     # open terminal emacsclient
     alias te="$EMACS_PLUGIN_LAUNCHER -nw"
 =======
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+    # open terminal emacsclient
+    alias te="$EMACS_PLUGIN_LAUNCHER -nw"
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 
     # same than M-x eval but from outside Emacs.
     alias eeval="$EMACS_PLUGIN_LAUNCHER --eval"
@@ -34,11 +43,14 @@ if "$ZSH/tools/require_tool.sh" emacs 23 2>/dev/null ; then
     alias eframe='emacsclient --alternate-editor "" --create-frame'
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     # to code all night long
     alias emasc=emacs
     alias emcas=emacs
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 
     # Write to standard output the path to the file
     # opened in the current buffer.

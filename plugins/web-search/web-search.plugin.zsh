@@ -11,9 +11,13 @@ function web_search() {
     yahoo       "https://search.yahoo.com/search?p="
     duckduckgo  "https://www.duckduckgo.com/?q="
 <<<<<<< HEAD
+<<<<<<< HEAD
     startpage   "https://www.startpage.com/do/search?q="
 =======
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+    startpage   "https://www.startpage.com/do/search?q="
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     yandex      "https://yandex.ru/yandsearch?text="
     github      "https://github.com/search?q="
     baidu       "https://www.baidu.com/s?wd="
@@ -46,9 +50,13 @@ alias google='web_search google'
 alias yahoo='web_search yahoo'
 alias ddg='web_search duckduckgo'
 <<<<<<< HEAD
+<<<<<<< HEAD
 alias sp='web_search startpage'
 =======
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+alias sp='web_search startpage'
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 alias yandex='web_search yandex'
 alias github='web_search github'
 alias baidu='web_search baidu'

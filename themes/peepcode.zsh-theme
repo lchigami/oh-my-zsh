@@ -42,6 +42,7 @@ PROMPT='
 ${smiley}  %{$reset_color%}'
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 if [[ -d ~/.rvm ]] && [[ -e ~/.rvm/bin/rvm-prompt ]]; then
     rvm_prompt='$(~/.rvm/bin/rvm-prompt)'
 else
@@ -52,3 +53,6 @@ RPROMPT='%{$fg[white]%} $rvm_prompt$(git_prompt)%{$reset_color%}'
 =======
 RPROMPT='%{$fg[white]%} $(~/.rvm/bin/rvm-prompt)$(git_prompt)%{$reset_color%}'
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+RPROMPT='%{$fg[white]%} $(ruby_prompt_info)$(git_prompt)%{$reset_color%}'
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6

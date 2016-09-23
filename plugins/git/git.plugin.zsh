@@ -47,10 +47,15 @@ alias gapa='git add --patch'
 alias gb='git branch'
 alias gba='git branch -a'
 <<<<<<< HEAD
+<<<<<<< HEAD
 alias gbda='git branch --no-color --merged | command grep -vE "^(\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 git branch -d'
 =======
 alias gbda='git branch --merged | command grep -vE "^(\*|\s*master\s*$)" | command xargs -n 1 git branch -d'
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+alias gbd='git branch -d'
+alias gbda='git branch --no-color --merged | command grep -vE "^(\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 git branch -d'
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 alias gbl='git blame -b -w'
 alias gbnm='git branch --no-merged'
 alias gbr='git branch --remote'
@@ -63,16 +68,22 @@ alias gbss='git bisect start'
 alias gc='git commit -v'
 alias gc!='git commit -v --amend'
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 alias gcn!='git commit -v --no-edit --amend'
 alias gca='git commit -v -a'
 alias gca!='git commit -v -a --amend'
 alias gcan!='git commit -v -a --no-edit --amend'
 alias gcans!='git commit -v -a -s --no-edit --amend'
+<<<<<<< HEAD
 =======
 alias gca='git commit -v -a'
 alias gca!='git commit -v -a --amend'
 alias gcan!='git commit -v -a -s --no-edit --amend'
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 alias gcam='git commit -a -m'
 alias gcb='git checkout -b'
 alias gcf='git config --list'
@@ -81,19 +92,28 @@ alias gclean='git clean -fd'
 alias gpristine='git reset --hard && git clean -dfx'
 alias gcm='git checkout master'
 <<<<<<< HEAD
+<<<<<<< HEAD
 alias gcd='git checkout develop'
 =======
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+alias gcd='git checkout develop'
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 alias gcmsg='git commit -m'
 alias gco='git checkout'
 alias gcount='git shortlog -sn'
 compdef gcount=git
 alias gcp='git cherry-pick'
 <<<<<<< HEAD
+<<<<<<< HEAD
 alias gcpa='git cherry-pick --abort'
 alias gcpc='git cherry-pick --continue'
 =======
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+alias gcpa='git cherry-pick --abort'
+alias gcpc='git cherry-pick --continue'
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 alias gcs='git commit -S'
 
 alias gd='git diff'
@@ -101,6 +121,9 @@ alias gdca='git diff --cached'
 alias gdct='git describe --tags `git rev-list --tags --max-count=1`'
 alias gdt='git diff-tree --no-commit-id --name-only -r'
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 alias gdw='git diff --word-diff'
 
 gdv() { git diff -w "$@" | view - }
@@ -171,6 +194,7 @@ alias gpsup='git push --set-upstream origin $(git_current_branch)'
 
 alias ghh='git help'
 
+<<<<<<< HEAD
 =======
 gdv() { git diff -w "$@" | view - }
 compdef _git gdv=git-diff
@@ -229,6 +253,8 @@ alias ggpur='ggu'
 compdef _git ggpur=git-checkout
 
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 alias gignore='git update-index --assume-unchanged'
 alias gignored='git ls-files -v | grep "^[[:lower:]]"'
 alias git-svn-dcommit-push='git svn dcommit && git push github master:svntrunk'
@@ -237,6 +263,9 @@ compdef git-svn-dcommit-push=git
 alias gk='\gitk --all --branches'
 compdef _git gk='gitk'
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 alias gke='\gitk --all $(git log -g --pretty=%h)'
 compdef _git gke='gitk'
 
@@ -251,6 +280,7 @@ alias glol="git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cg
 alias glola="git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all"
 alias glog='git log --oneline --decorate --graph'
 alias gloga='git log --oneline --decorate --graph --all'
+<<<<<<< HEAD
 =======
 alias gke='\gitk --all $(git log -g --pretty=format:%h)'
 compdef _git gke='gitk'
@@ -266,6 +296,8 @@ alias glol="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset
 alias glola="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all"
 alias glog='git log --oneline --decorate --color --graph'
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 alias glp="_git_log_prettily"
 compdef _git glp=git-log
 
@@ -308,6 +340,7 @@ alias gsr='git svn rebase'
 alias gss='git status -s'
 alias gst='git status'
 <<<<<<< HEAD
+<<<<<<< HEAD
 alias gsta='git stash save'
 alias gstaa='git stash apply'
 alias gstc='git stash clear'
@@ -315,6 +348,11 @@ alias gstc='git stash clear'
 alias gsta='git stash'
 alias gstaa='git stash apply'
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+alias gsta='git stash save'
+alias gstaa='git stash apply'
+alias gstc='git stash clear'
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 alias gstd='git stash drop'
 alias gstl='git stash list'
 alias gstp='git stash pop'

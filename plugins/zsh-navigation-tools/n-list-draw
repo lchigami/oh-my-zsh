@@ -80,6 +80,7 @@ _nlist_print_with_ansi() {
         if (( no_match == 0 )); then
             if (( col >= 30 && col <= 37 )); then
 <<<<<<< HEAD
+<<<<<<< HEAD
                 zcurses attr "$win" $c[col-29]/"$background"
             elif [[ "$col" -eq 0 ]]; then
                 zcurses attr "$win" "$colorpair"
@@ -88,6 +89,11 @@ _nlist_print_with_ansi() {
             elif [[ "$col" -eq 0 ]]; then
                 zcurses attr "$win" white/black
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+                zcurses attr "$win" $c[col-29]/"$background"
+            elif [[ "$col" -eq 0 ]]; then
+                zcurses attr "$win" "$colorpair"
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
             fi
         fi
     done
@@ -104,18 +110,24 @@ shift 7
 integer max_text_len=page_width-x_offset
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 [[ "$bold" = "0" || "$bold" = "-bold" ]] && bold="-bold" || bold="+bold"
 [[ "$active_text" = "underline" || "$active_text" = "reverse" ]] || local active_text="reverse"
 # Linux has ncv 18, screen* has ncv 3 - underline won't work properly
 (( ${terminfo[ncv]:-0} & 2 )) && active_text="reverse"
 # FreeBSD uses TERM=xterm for newcons but doesn't actually support underline
 [[ "$TERM" = "xterm" && -z "$DISPLAY" ]] && active_text="reverse"
+<<<<<<< HEAD
 =======
 [ "$bold" = "0" ] && bold="" || bold="+bold"
 [[ "$active_text" = "underline" || "$active_text" = "reverse" ]] || local active_text="reverse"
 # With Linux terminal underline won't work properly
 [ "$TERM" = "linux" ] && active_text="reverse"
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 
 integer max_idx=page_height
 integer end_idx=max_idx
@@ -123,10 +135,14 @@ integer end_idx=max_idx
 integer y=y_offset
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 zcurses attr "$win" "$bold" "$colorpair"
 =======
 zcurses attr "$win" $bold white/black
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+zcurses attr "$win" "$bold" "$colorpair"
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 
 integer i text_len
 local text

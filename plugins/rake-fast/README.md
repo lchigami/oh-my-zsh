@@ -3,6 +3,9 @@
 Fast rake autocompletion plugin.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 This plugin caches the output for later usage and significantly speeds it up.
 It generates a `.rake_tasks` cache file in parallel to the Rakefile. It also
 checks the file modification time to see if it needs to regenerate the cache
@@ -19,6 +22,7 @@ Since August of 2016, it also checks if it's in a Rails project and looks at
 rake files inside `lib/tasks` and their modification time to know if the
 cache file needs to be regenerated.
 
+<<<<<<< HEAD
 =======
 This script caches the output for later usage and significantly speeds it up. It generates a .rake_tasks cache file in parallel to the Rakefile. It also checks the file modification dates to see if it needs to regenerate the cache file.
 
@@ -27,10 +31,13 @@ This is entirely based on [this pull request by Ullrich Schäfer](https://github
 Think about that. 2006.
 
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 ## Installation
 
 Just add the plugin to your `.zshrc`:
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 ```zsh
 plugins=(... rake-fast)
@@ -38,6 +45,10 @@ plugins=(... rake-fast)
 ```bash
 plugins=(foo bar rake-fast)
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+```zsh
+plugins=(... rake-fast)
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 ```
 
 You might consider adding `.rake_tasks` to your [global .gitignore](https://help.github.com/articles/ignoring-files#global-gitignore)
@@ -45,9 +56,15 @@ You might consider adding `.rake_tasks` to your [global .gitignore](https://help
 ## Usage
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Type `rake`, then press tab.
 
 If you want to force the regeneration of the `.rake_tasks` file, run `rake_refresh`.
 =======
 `rake`, then press tab
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+Type `rake`, then press tab.
+
+If you want to force the regeneration of the `.rake_tasks` file, run `rake_refresh`.
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6

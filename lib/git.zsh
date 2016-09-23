@@ -77,6 +77,9 @@ function git_current_branch() {
 # Gets the number of commits ahead from remote
 function git_commits_ahead() {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
   if command git rev-parse --git-dir &>/dev/null; then
     local commits="$(git rev-list --count @{upstream}..HEAD)"
     if [[ "$commits" != 0 ]]; then
@@ -92,12 +95,15 @@ function git_commits_behind() {
     if [[ "$commits" != 0 ]]; then
       echo "$ZSH_THEME_GIT_COMMITS_BEHIND_PREFIX$commits$ZSH_THEME_GIT_COMMITS_BEHIND_SUFFIX"
     fi
+<<<<<<< HEAD
 =======
   if $(echo "$(command git log @{upstream}..HEAD 2> /dev/null)" | grep '^commit' &> /dev/null); then
     local COMMITS
     COMMITS=$(command git log @{upstream}..HEAD | grep '^commit' | wc -l | tr -d ' ')
     echo "$ZSH_THEME_GIT_COMMITS_AHEAD_PREFIX$COMMITS$ZSH_THEME_GIT_COMMITS_AHEAD_SUFFIX"
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
   fi
 }
 
@@ -173,6 +179,7 @@ function git_prompt_status() {
     STATUS="$ZSH_THEME_GIT_PROMPT_UNMERGED$STATUS"
   fi
 <<<<<<< HEAD
+<<<<<<< HEAD
   if $(echo "$INDEX" | grep '^## [^ ]\+ .*ahead' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_AHEAD$STATUS"
   fi
@@ -182,13 +189,20 @@ function git_prompt_status() {
   if $(echo "$INDEX" | grep '^## [^ ]\+ .*diverged' &> /dev/null); then
 =======
   if $(echo "$INDEX" | grep '^## .*ahead' &> /dev/null); then
+=======
+  if $(echo "$INDEX" | grep '^## [^ ]\+ .*ahead' &> /dev/null); then
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     STATUS="$ZSH_THEME_GIT_PROMPT_AHEAD$STATUS"
   fi
   if $(echo "$INDEX" | grep '^## .*behind' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_BEHIND$STATUS"
   fi
+<<<<<<< HEAD
   if $(echo "$INDEX" | grep '^## .*diverged' &> /dev/null); then
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+  if $(echo "$INDEX" | grep '^## [^ ]\+ .*diverged' &> /dev/null); then
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     STATUS="$ZSH_THEME_GIT_PROMPT_DIVERGED$STATUS"
   fi
   echo $STATUS
@@ -217,6 +231,9 @@ function git_compare_version() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 # Outputs the name of the current user
 # Usage example: $(git_current_user_name)
 function git_current_user_name() {
@@ -229,8 +246,11 @@ function git_current_user_email() {
   command git config user.email 2>/dev/null
 }
 
+<<<<<<< HEAD
 =======
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 # This is unlikely to change so make it all statically assigned
 POST_1_7_2_GIT=$(git_compare_version "1.7.2")
 # Clean up the namespace slightly by removing the checker function

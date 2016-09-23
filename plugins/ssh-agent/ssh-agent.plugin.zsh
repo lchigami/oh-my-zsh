@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 typeset _agent_forwarding _ssh_env_cache
 
 function _start_agent() {
@@ -31,7 +34,11 @@ if [[ $_agent_forwarding == "yes" && -n "$SSH_AUTH_SOCK" ]]; then
 elif [[ -f "$_ssh_env_cache" ]]; then
 	# Source SSH settings, if applicable
 	. $_ssh_env_cache > /dev/null
+<<<<<<< HEAD
 	pgrep ssh-agent | grep -q $SSH_AGENT_PID || {
+=======
+	ps x | grep ssh-agent | grep -q $SSH_AGENT_PID || {
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 		_start_agent
 	}
 else
@@ -41,6 +48,7 @@ fi
 # tidy up after ourselves
 unset _agent_forwarding _ssh_env_cache
 unfunction _start_agent
+<<<<<<< HEAD
 =======
 #
 # INSTRUCTIONS
@@ -122,3 +130,5 @@ unset _plugin__forwarding
 unset _plugin__ssh_env
 
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6

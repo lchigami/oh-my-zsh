@@ -9,6 +9,9 @@
 #  pushd -N: start counting from right of `dirs' output
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 switch-to-dir () {
 	while ! builtin pushd -q $1 &>/dev/null; do
 		# We found a missing directory: pop it out of the dir stack
@@ -19,17 +22,24 @@ switch-to-dir () {
 	done
 }
 
+<<<<<<< HEAD
 =======
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 insert-cycledleft () {
 	emulate -L zsh
 	setopt nopushdminus
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	switch-to-dir +1
 =======
 	builtin pushd -q +1 &>/dev/null || true
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+	switch-to-dir +1
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 	zle reset-prompt
 }
 zle -N insert-cycledleft
@@ -39,10 +49,14 @@ insert-cycledright () {
 	setopt nopushdminus
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	switch-to-dir -0
 =======
 	builtin pushd -q -0 &>/dev/null || true
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+	switch-to-dir -0
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 	zle reset-prompt
 }
 zle -N insert-cycledright

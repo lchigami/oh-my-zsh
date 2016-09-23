@@ -8,10 +8,14 @@
 # Version
 # -------
 <<<<<<< HEAD
+<<<<<<< HEAD
 #  1.5.0
 =======
 #  0.1.0
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+#  1.5.0
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 # -------------------------------------------------------------------------
 # Authors
 # -------
@@ -24,6 +28,9 @@
 # -------------------------------------------------------------------------
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 __docker-compose_q() {
     docker-compose 2>/dev/null $compose_options "$@"
 }
@@ -35,6 +42,7 @@ __docker-compose_all_services_in_compose_file() {
     already_selected=$(echo $words | tr " " "|")
     __docker-compose_q config --services \
         | grep -Ev "^(${already_selected})$"
+<<<<<<< HEAD
 =======
 # For compatibility reasons, Compose and therefore its completion supports several
 # stack compositon files as listed here, in descending priority.
@@ -57,11 +65,16 @@ ___docker-compose_all_services_in_compose_file() {
     already_selected=$(echo ${words[@]} | tr " " "|")
     awk -F: '/^[a-zA-Z0-9]/{print $1}' "${compose_file:-$(__docker-compose_compose_file)}" 2>/dev/null | grep -Ev "$already_selected"
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 }
 
 # All services, even those without an existing container
 __docker-compose_services_all() {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     [[ $PREFIX = -* ]] && return 1
     integer ret=1
     services=$(__docker-compose_all_services_in_compose_file)
@@ -83,6 +96,7 @@ __docker-compose_services_with_key() {
         | grep " \+$1:" \
         | cut -d: -f1 \
         | grep -Ev "^(${already_selected})$"
+<<<<<<< HEAD
 =======
     services=$(___docker-compose_all_services_in_compose_file)
     _alternative "args:services:($services)"
@@ -96,26 +110,37 @@ ___docker-compose_services_with_key() {
     # flatten sections to one line, then filter lines containing the key and return section name.
     awk '/^[a-zA-Z0-9]/{printf "\n"};{printf $0;next;}' "${compose_file:-$(__docker-compose_compose_file)}" 2>/dev/null | awk -F: -v key=": +$1:" '$0 ~ key {print $1}' 2>/dev/null | grep -Ev "$already_selected"
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 }
 
 # All services that are defined by a Dockerfile reference
 __docker-compose_services_from_build() {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     [[ $PREFIX = -* ]] && return 1
     integer ret=1
     buildable=$(__docker-compose_services_with_key build)
     _alternative "args:buildable services:($buildable)" && ret=0
 
    return ret
+<<<<<<< HEAD
 =======
     buildable=$(___docker-compose_services_with_key build)
     _alternative "args:buildable services:($buildable)"
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 }
 
 # All services that are defined by an image
 __docker-compose_services_from_image() {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     [[ $PREFIX = -* ]] && return 1
     integer ret=1
     pullable=$(__docker-compose_services_with_key image)
@@ -129,6 +154,7 @@ __docker-compose_get_services() {
     integer ret=1
     local kind
     declare -a running paused stopped lines args services
+<<<<<<< HEAD
 =======
     pullable=$(___docker-compose_services_with_key image)
     _alternative "args:pullable services:($pullable)"
@@ -138,6 +164,8 @@ __docker-compose_get_services() {
     local kind expl
     declare -a running stopped lines args services
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 
     docker_status=$(docker ps > /dev/null 2>&1)
     if [ $? -ne 0 ]; then
@@ -148,21 +176,30 @@ __docker-compose_get_services() {
     kind=$1
     shift
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     [[ $kind =~ (stopped|all) ]] && args=($args -a)
 
     lines=(${(f)"$(_call_program commands docker $docker_options ps $args)"})
     services=(${(f)"$(_call_program commands docker-compose 2>/dev/null $compose_options ps -q)"})
+<<<<<<< HEAD
 =======
     [[ $kind = (stopped|all) ]] && args=($args -a)
 
     lines=(${(f)"$(_call_program commands docker ps ${args})"})
     services=(${(f)"$(_call_program commands docker-compose 2>/dev/null ${compose_file:+-f $compose_file} ${compose_project:+-p $compose_project} ps -q)"})
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 
     # Parse header line to find columns
     local i=1 j=1 k header=${lines[1]}
     declare -A begin end
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     while (( j < ${#header} - 1 )); do
         i=$(( j + ${${header[$j,-1]}[(i)[^ ]]} - 1 ))
         j=$(( i + ${${header[$i,-1]}[(i)  ]} - 1 ))
@@ -170,6 +207,7 @@ __docker-compose_get_services() {
         begin[${header[$i,$((j-1))]}]=$i
         end[${header[$i,$((j-1))]}]=$k
     done
+<<<<<<< HEAD
 =======
     while (( $j < ${#header} - 1 )) {
         i=$(( $j + ${${header[$j,-1]}[(i)[^ ]]} - 1))
@@ -179,6 +217,8 @@ __docker-compose_get_services() {
         end[${header[$i,$(($j-1))]}]=$k
     }
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     lines=(${lines[2,-1]})
 
     # Container ID
@@ -186,15 +226,22 @@ __docker-compose_get_services() {
     local -a names
     for line in $lines; do
 <<<<<<< HEAD
+<<<<<<< HEAD
         if [[ ${services[@]} == *"${line[${begin[CONTAINER ID]},${end[CONTAINER ID]}]%% ##}"* ]]; then
 =======
         if [[ $services == *"${line[${begin[CONTAINER ID]},${end[CONTAINER ID]}]%% ##}"* ]]; then
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+        if [[ ${services[@]} == *"${line[${begin[CONTAINER ID]},${end[CONTAINER ID]}]%% ##}"* ]]; then
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
             names=(${(ps:,:)${${line[${begin[NAMES]},-1]}%% *}})
             for name in $names; do
                 s="${${name%_*}#*_}:${(l:15:: :::)${${line[${begin[CREATED]},${end[CREATED]}]/ ago/}%% ##}}"
                 s="$s, ${line[${begin[CONTAINER ID]},${end[CONTAINER ID]}]%% ##}"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
                 s="$s, ${${${line[${begin[IMAGE]},${end[IMAGE]}]}/:/\\:}%% ##}"
                 if [[ ${line[${begin[STATUS]},${end[STATUS]}]} = Exit* ]]; then
                     stopped=($stopped $s)
@@ -202,12 +249,15 @@ __docker-compose_get_services() {
                     if [[  ${line[${begin[STATUS]},${end[STATUS]}]} = *\(Paused\)* ]]; then
                         paused=($paused $s)
                     fi
+<<<<<<< HEAD
 =======
                 s="$s, ${${${line[$begin[IMAGE],$end[IMAGE]]}/:/\\:}%% ##}"
                 if [[ ${line[${begin[STATUS]},${end[STATUS]}]} = Exit* ]]; then
                     stopped=($stopped $s)
                 else
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
                     running=($running $s)
                 fi
             done
@@ -215,6 +265,9 @@ __docker-compose_get_services() {
     done
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     [[ $kind =~ (running|all) ]] && _describe -t services-running "running services" running "$@" && ret=0
     [[ $kind =~ (paused|all) ]] && _describe -t services-paused "paused services" paused "$@" && ret=0
     [[ $kind =~ (stopped|all) ]] && _describe -t services-stopped "stopped services" stopped "$@" && ret=0
@@ -229,6 +282,7 @@ __docker-compose_pausedservices() {
 
 __docker-compose_stoppedservices() {
     [[ $PREFIX = -* ]] && return 1
+<<<<<<< HEAD
 =======
     [[ $kind = (running|all) ]] && _describe -t services-running "running services" running
     [[ $kind = (stopped|all) ]] && _describe -t services-stopped "stopped services" stopped
@@ -236,27 +290,38 @@ __docker-compose_stoppedservices() {
 
 __docker-compose_stoppedservices() {
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     __docker-compose_get_services stopped "$@"
 }
 
 __docker-compose_runningservices() {
+<<<<<<< HEAD
 <<<<<<< HEAD
     [[ $PREFIX = -* ]] && return 1
     __docker-compose_get_services running "$@"
 }
 
 __docker-compose_services() {
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     [[ $PREFIX = -* ]] && return 1
 =======
     __docker-compose_get_services running "$@"
 }
 
+<<<<<<< HEAD
 __docker-compose_services () {
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+__docker-compose_services() {
+    [[ $PREFIX = -* ]] && return 1
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     __docker-compose_get_services all "$@"
 }
 
 __docker-compose_caching_policy() {
+<<<<<<< HEAD
 <<<<<<< HEAD
     oldp=( "$1"(Nmh+1) )            # 1 hour
     (( $#oldp ))
@@ -270,6 +335,13 @@ __docker-compose_commands() {
 
 __docker-compose_commands () {
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+    oldp=( "$1"(Nmh+1) )            # 1 hour
+    (( $#oldp ))
+}
+
+__docker-compose_commands() {
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     local cache_policy
 
     zstyle -s ":completion:${curcontext}:" cache-policy cache_policy
@@ -284,15 +356,22 @@ __docker-compose_commands () {
         lines=(${(f)"$(_call_program commands docker-compose 2>&1)"})
         _docker_compose_subcommands=(${${${lines[$((${lines[(i)Commands:]} + 1)),${lines[(I)  *]}]}## #}/ ##/:})
 <<<<<<< HEAD
+<<<<<<< HEAD
         (( $#_docker_compose_subcommands > 0 )) && _store_cache docker_compose_subcommands _docker_compose_subcommands
 =======
         _store_cache docker_compose_subcommands _docker_compose_subcommands
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+        (( $#_docker_compose_subcommands > 0 )) && _store_cache docker_compose_subcommands _docker_compose_subcommands
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     fi
     _describe -t docker-compose-commands "docker-compose command" _docker_compose_subcommands
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 __docker-compose_subcommand() {
     local opts_help opts_force_recreate opts_no_recreate opts_no_build opts_remove_orphans opts_timeout opts_no_color opts_no_deps
 
@@ -361,6 +440,7 @@ __docker-compose_subcommand() {
                 '(-):command: _command_names -e' \
                 '*::arguments: _normal' && ret=0
             ;;
+<<<<<<< HEAD
 =======
 __docker-compose_subcommand () {
     local -a _command_args
@@ -372,21 +452,30 @@ __docker-compose_subcommand () {
                 '*:services:__docker-compose_services_from_build' && ret=0
             ;;
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
         (help)
             _arguments ':subcommand:__docker-compose_commands' && ret=0
             ;;
         (kill)
             _arguments \
 <<<<<<< HEAD
+<<<<<<< HEAD
                 $opts_help \
 =======
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+                $opts_help \
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
                 '-s[SIGNAL to send to the container. Default signal is SIGKILL.]:signal:_signals' \
                 '*:running services:__docker-compose_runningservices' && ret=0
             ;;
         (logs)
             _arguments \
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
                 $opts_help \
                 '(-f --follow)'{-f,--follow}'[Follow log output]' \
                 $opts_no_color \
@@ -404,6 +493,7 @@ __docker-compose_subcommand () {
                 $opts_help \
                 '--protocol=[tcp or udp \[default: tcp\]]:protocol:(tcp udp)' \
                 '--index=[index of the container if there are multiple instances of a service \[default: 1\]]:index: ' \
+<<<<<<< HEAD
 =======
                 '--no-color[Produce monochrome output.]' \
                 '*:services:__docker-compose_services_all' && ret=0
@@ -417,21 +507,30 @@ __docker-compose_subcommand () {
                 '--protocol=-[tcp or udap (defaults to tcp)]:protocol:(tcp udp)' \
                 '--index=-[index of the container if there are mutiple instances of a service (defaults to 1)]:index: ' \
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
                 '1:running services:__docker-compose_runningservices' \
                 '2:port:_ports' && ret=0
             ;;
         (ps)
             _arguments \
 <<<<<<< HEAD
+<<<<<<< HEAD
                 $opts_help \
 =======
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+                $opts_help \
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
                 '-q[Only display IDs]' \
                 '*:services:__docker-compose_services_all' && ret=0
             ;;
         (pull)
             _arguments \
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
                 $opts_help \
                 '--ignore-pull-failures[Pull what it can and ignores images with pull failures.]' \
                 '*:services:__docker-compose_services_from_image' && ret=0
@@ -447,6 +546,7 @@ __docker-compose_subcommand () {
                 $opts_help \
                 '(-f --force)'{-f,--force}"[Don't ask to confirm removal]" \
                 '-v[Remove any anonymous volumes attached to containers]' \
+<<<<<<< HEAD
 =======
                 '--allow-insecure-ssl[Allow insecure connections to the docker registry]' \
                 '*:services:__docker-compose_services_from_image' && ret=0
@@ -456,11 +556,16 @@ __docker-compose_subcommand () {
                 '(-f --force)'{-f,--force}"[Don't ask to confirm removal]" \
                 '-v[Remove volumes associated with containers]' \
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
                 '*:stopped services:__docker-compose_stoppedservices' && ret=0
             ;;
         (run)
             _arguments \
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
                 $opts_help \
                 '-d[Detached mode: Run container in the background, print new container name.]' \
                 '*-e[KEY=VAL Set an environment variable (can be used multiple times)]:environment variable KEY=VAL: ' \
@@ -473,6 +578,7 @@ __docker-compose_subcommand () {
                 '-T[Disable pseudo-tty allocation. By default `docker-compose run` allocates a TTY.]' \
                 '(-u --user)'{-u,--user=}'[Run as specified username or uid]:username or uid:_users' \
                 '(-w --workdir)'{-w,--workdir=}'[Working directory inside the container]:workdir: ' \
+<<<<<<< HEAD
 =======
                 '--allow-insecure-ssl[Allow insecure connections to the docker registry]' \
                 '-d[Detached mode: Run container in the background, print new container name.]' \
@@ -484,12 +590,17 @@ __docker-compose_subcommand () {
                 "--service-ports[Run command with the service's ports enabled and mapped to the host.]" \
                 '-T[Disable pseudo-tty allocation. By default `docker-compose run` allocates a TTY.]' \
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
                 '(-):services:__docker-compose_services' \
                 '(-):command: _command_names -e' \
                 '*::arguments: _normal' && ret=0
             ;;
         (scale)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
             _arguments \
                 $opts_help \
                 $opts_timeout \
@@ -524,6 +635,7 @@ __docker-compose_subcommand () {
                 "(-d)--abort-on-container-exit[Stops all containers if any container was stopped. Incompatible with -d.]" \
                 '(-t --timeout)'{-t,--timeout}"[Use this timeout in seconds for container shutdown when attached or when containers are already running. (default: 10)]:seconds: " \
                 $opts_remove_orphans \
+<<<<<<< HEAD
 =======
             _arguments '*:running services:__docker-compose_runningservices' && ret=0
             ;;
@@ -546,10 +658,13 @@ __docker-compose_subcommand () {
                 '(-t --timeout)'{-t,--timeout}"[Specify a shutdown timeout in seconds. (default: 10)]:seconds: " \
                 "--x-smart-recreate[Only recreate containers whose configuration or image needs to be updated. (EXPERIMENTAL)]" \
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
                 '*:services:__docker-compose_services_all' && ret=0
             ;;
         (version)
             _arguments \
+<<<<<<< HEAD
 <<<<<<< HEAD
                 $opts_help \
                 "--short[Shows only Compose's version number.]" && ret=0
@@ -563,16 +678,28 @@ __docker-compose_subcommand () {
         (*)
             _message 'Unknown sub command'
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+                $opts_help \
+                "--short[Shows only Compose's version number.]" && ret=0
+            ;;
+        (*)
+            _message 'Unknown sub command' && ret=1
+            ;;
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     esac
 
     return ret
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 _docker-compose() {
 =======
 _docker-compose () {
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+_docker-compose() {
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     # Support for subservices, which allows for `compdef _docker docker-shell=_docker_containers`.
     # Based on /usr/share/zsh/functions/Completion/Unix/_git without support for `ret`.
     if [[ $service != docker-compose ]]; then
@@ -581,16 +708,24 @@ _docker-compose () {
     fi
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     local curcontext="$curcontext" state line
     integer ret=1
 =======
     local curcontext="$curcontext" state line ret=1
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+    local curcontext="$curcontext" state line
+    integer ret=1
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     typeset -A opt_args
 
     _arguments -C \
         '(- :)'{-h,--help}'[Get help]' \
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
         '(-f --file)'{-f,--file}'[Specify an alternate docker-compose file (default: docker-compose.yml)]:file:_files -g "*.yml"' \
         '(-p --project-name)'{-p,--project-name}'[Specify an alternate project name (default: directory name)]:project name:' \
         '--verbose[Show more output]' \
@@ -641,6 +776,7 @@ _docker-compose () {
                 compose_options+=$opt_args[$k]
             fi
         fi
+<<<<<<< HEAD
 =======
         '--verbose[Show more output]' \
         '(- :)'{-v,--version}'[Print version and exit]' \
@@ -666,6 +802,8 @@ _docker-compose () {
         esac
         (( counter++ ))
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     done
 
     case $state in

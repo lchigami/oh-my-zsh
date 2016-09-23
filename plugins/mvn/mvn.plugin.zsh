@@ -46,9 +46,13 @@ alias mvncie='mvn clean install eclipse:eclipse'
 alias mvnci='mvn clean install'
 alias mvncist='mvn clean install -DskipTests'
 <<<<<<< HEAD
+<<<<<<< HEAD
 alias mvncisto='mvn clean install -DskipTests --offline'
 =======
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+alias mvncisto='mvn clean install -DskipTests --offline'
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 alias mvne='mvn eclipse:eclipse'
 alias mvnce='mvn clean eclipse:clean eclipse:eclipse'
 alias mvnd='mvn deploy'
@@ -176,10 +180,14 @@ function listMavenCompletions {
 
         # options
 <<<<<<< HEAD
+<<<<<<< HEAD
         -Dmaven.test.skip=true -DskipTests -Dmaven.surefire.debug -DenableCiProfile -Dpmd.skip=true -Dcheckstyle.skip=true -Dtycho.mode=maven -Dmaven.test.failure.ignore=true
 =======
         -Dmaven.test.skip=true -DskipTests -Dmaven.surefire.debug -DenableCiProfile -Dpmd.skip=true -Dcheckstyle.skip=true -Dtycho.mode=maven
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+        -Dmaven.test.skip=true -DskipTests -DskipITs -Dmaven.surefire.debug -DenableCiProfile -Dpmd.skip=true -Dcheckstyle.skip=true -Dtycho.mode=maven -Dmaven.test.failure.ignore=true -DgroupId= -DartifactId= -Dversion= -Dpackaging=jar -Dfile=
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 
         # arguments
         -am -amd -B -C -c -cpu -D -e -emp -ep -f -fae -ff -fn -gs -h -l -N -npr -npu -nsu -o -P -pl -q -rf -s -T -t -U -up -V -v -X
@@ -188,6 +196,7 @@ function listMavenCompletions {
         archetype:generate generate-sources 
         cobertura:cobertura
         -Dtest= `if [ -d ./src/test/java ] ; then find ./src/test/java -type f -name '*.java' | grep -v svn | sed 's?.*/\([^/]*\)\..*?-Dtest=\1?' ; fi`
+        -Dit.test= `if [ -d ./src/test/java ] ; then find ./src/test/java -type f -name '*.java' | grep -v svn | sed 's?.*/\([^/]*\)\..*?-Dit.test=\1?' ; fi`
     ); 
 }
 

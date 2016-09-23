@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 #compdef kitchen
 # ------------------------------------------------------------------------------
 # Copyright (c) 2014 Github zsh-users - http://github.com/zsh-users
@@ -81,6 +84,7 @@ _kitchen_instances() {
     _kitchen_instances_cache_dir=$PWD
   fi
   _wanted instances expl 'instance' compadd -a _kitchen_instances_cache
+<<<<<<< HEAD
 =======
 # author: Peter Eisentraut
 # source: https://gist.github.com/petere/10307599
@@ -121,6 +125,8 @@ _kitchen_instances() {
 	fi
 	compadd -a _kitchen_instances_cache
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 }
 
 _kitchen "$@"

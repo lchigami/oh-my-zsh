@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 # Archlinux plugin
 
 ## Features
@@ -68,6 +71,7 @@
 - Martin Putniorz - mputniorz@gmail.com
 - MatthR3D - matthr3d@gmail.com
 - ornicar - thibault.duplessis@gmail.com
+<<<<<<< HEAD
 =======
 ## ARCHLINUX PLUGIN
 
@@ -134,3 +138,5 @@
 
 ---
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6

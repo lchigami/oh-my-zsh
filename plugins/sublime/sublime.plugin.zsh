@@ -57,6 +57,9 @@ fi
 
 alias stt='st .'
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 
 find_project()
 {
@@ -86,5 +89,8 @@ find_project()
 }
 
 alias stp=find_project
+<<<<<<< HEAD
 =======
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6

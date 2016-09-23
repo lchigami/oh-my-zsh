@@ -1,10 +1,14 @@
 #compdef task
 #
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Copyright 2010 - 2016 Johannes Schlatow
 =======
 # Copyright 2010 - 2015 Johannes Schlatow
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+# Copyright 2010 - 2016 Johannes Schlatow
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 # Copyright 2009 P.C. Shyamshankar
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,9 +35,12 @@ typeset -g _task_cmds _task_projects _task_tags _task_config _task_modifiers
 _task_projects=($(task _projects))
 _task_tags=($(task _tags))
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 _task_ids=($(task _ids))
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 _task_zshids=( ${(f)"$(task _zshids)"} )
 _task_config=($(task _config))
 _task_columns=($(task _columns))
@@ -147,14 +154,20 @@ task_dates=(
 
 local -a task_zshids
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 if (( $#_task_zshids )); then
   _regex_words values 'task IDs' $_task_zshids
   task_zshids=("$reply[@]")
 fi
+<<<<<<< HEAD
 =======
 _regex_words values 'task IDs' $_task_zshids
 task_zshids=("$reply[@]")
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 
 _regex_words values 'task frequencies' \
   'daily:Every day' \

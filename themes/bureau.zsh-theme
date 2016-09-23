@@ -23,6 +23,9 @@ bureau_git_branch () {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 bureau_git_status() {
   _STATUS=""
 
@@ -61,6 +64,7 @@ bureau_git_status() {
     _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_STASHED"
   fi
 
+<<<<<<< HEAD
 =======
 bureau_git_status () {
   _INDEX=$(command git status --porcelain -b 2> /dev/null)
@@ -91,6 +95,8 @@ bureau_git_status () {
   fi
 
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
   echo $_STATUS
 }
 
@@ -126,6 +132,7 @@ get_space () {
   local STR=$1$2
   local zero='%([BSUbfksu]|([FB]|){*})'
 <<<<<<< HEAD
+<<<<<<< HEAD
   local LENGTH=${#${(S%%)STR//$~zero/}}
   local SPACES=""
   (( LENGTH = ${COLUMNS} - $LENGTH - 1))
@@ -136,6 +143,12 @@ get_space () {
   (( LENGTH = ${COLUMNS} - $LENGTH - 1))
   
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+  local LENGTH=${#${(S%%)STR//$~zero/}}
+  local SPACES=""
+  (( LENGTH = ${COLUMNS} - $LENGTH - 1))
+
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
   for i in {0..$LENGTH}
     do
       SPACES="$SPACES "
@@ -150,10 +163,14 @@ _1RIGHT="[%*] "
 bureau_precmd () {
   _1SPACES=`get_space $_1LEFT $_1RIGHT`
 <<<<<<< HEAD
+<<<<<<< HEAD
   print
 =======
   print 
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+  print
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
   print -rP "$_1LEFT$_1SPACES$_1RIGHT"
 }
 

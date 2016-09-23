@@ -4,11 +4,17 @@
 # KNIFE_CONF_PATH=/path/to/my/.chef/knife.rb
 # KNIFE_COOKBOOK_PATH=/path/to/my/chef/cookbooks
 <<<<<<< HEAD
+<<<<<<< HEAD
 # If you want your local cookbooks path to be calculated relative to where you are then 
 # set the below option
 # KNIFE_RELATIVE_PATH=true 
 =======
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+# If you want your local cookbooks path to be calculated relative to where you are then 
+# set the below option
+# KNIFE_RELATIVE_PATH=true 
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 # Read around where these are used for more detail.
 
 # These flags should be available everywhere according to man knife
@@ -126,6 +132,9 @@ _knife() {
     ;;
      file)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
       case $words[2] in
       environment)
         _arguments '*:files:_path_files -g "*.(rb|json)" -W "$(_chef_root)/environments"'
@@ -139,9 +148,12 @@ _knife() {
       *)
         _arguments '*:Subsubcommands:($(_knife_options3))'
       esac 
+<<<<<<< HEAD
 =======
      _arguments '*:file or directory:_files -g "*.(rb|json)"'
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
     ;;
       list)
      compadd -a "$@" knife_general_flags
@@ -155,6 +167,9 @@ _knife() {
         compadd "$@" attributes definitions files libraries providers recipes resources templates
       else
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
       case $words[5] in 
         file)
           _arguments '*:directory:_path_files -/ -W "$(_chef_root)/data_bags" -qS \ '
@@ -171,6 +186,7 @@ _knife() {
         *) 
           _arguments '*:Subsubcommands:($(_knife_options3))'
       esac
+<<<<<<< HEAD
 =======
        _arguments '*:Subsubcommands:($(_knife_options2))'
       fi
@@ -178,6 +194,8 @@ _knife() {
     knifesubcmd5) 
       _arguments '*:Subsubcommands:($(_knife_options3))'
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
    esac
 }
 
@@ -226,6 +244,9 @@ _chef_environments_remote() {
 # The chef_x_local functions use the knife config to find the paths of relevant objects x to be uploaded to the server
 _chef_cookbooks_local() {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
   if [ $KNIFE_RELATIVE_PATH ]; then 
     local cookbook_path="$(_chef_root)/cookbooks"
   else 
@@ -235,6 +256,7 @@ _chef_cookbooks_local() {
     fi
     local cookbook_path=${KNIFE_COOKBOOK_PATH:-$(grep cookbook_path $knife_rb | awk 'BEGIN {FS = "[" }; {print $2}' | sed 's/\,//g' | sed "s/'//g" | sed 's/\(.*\)]/\1/' )}
   fi
+<<<<<<< HEAD
 =======
   
   local knife_rb=${KNIFE_CONF_PATH:-${HOME}/.chef/knife.rb}
@@ -243,6 +265,8 @@ _chef_cookbooks_local() {
   fi
   local cookbook_path=${KNIFE_COOKBOOK_PATH:-$(grep cookbook_path $knife_rb | awk 'BEGIN {FS = "[" }; {print $2}' | sed 's/\,//g' | sed "s/'//g" | sed 's/\(.*\)]/\1/' )}
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
   (for i in $cookbook_path; do ls $i; done)
 }
 
@@ -252,6 +276,9 @@ _cookbook_versions() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 # Searches up from current directory to find the closest folder that has a .chef folder 
 # Useful for the knife upload/from file commands 
 _chef_root () {
@@ -263,6 +290,9 @@ _chef_root () {
   done
 }
 
+<<<<<<< HEAD
 =======
 >>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
+=======
+>>>>>>> 1b7fc2f3aca32ba8713be0e27305c5cf578033f6
 _knife "$@"
