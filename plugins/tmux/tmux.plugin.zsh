@@ -3,7 +3,10 @@
 #
 
 alias ta='tmux attach -t'
+<<<<<<< HEAD
 alias tad='tmux attach -d -t'
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 alias ts='tmux new-session -s'
 alias tl='tmux list-sessions'
 alias tksv='tmux kill-server'

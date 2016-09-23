@@ -15,6 +15,7 @@ zmodload zsh/parameter
 local IFS="
 "
 
+<<<<<<< HEAD
 # Variables to save list's state when switching views
 # The views are: history and "most frequent history words"
 local one_NLIST_FROM_WHAT_IDX_LIST_IS_SHOWN
@@ -332,11 +333,35 @@ while (( 1 )); do
         fi
     fi
 done
+=======
+unset NLIST_COLORING_PATTERN
+
+[ -f ~/.config/znt/n-list.conf ] && . ~/.config/znt/n-list.conf
+[ -f ~/.config/znt/n-history.conf ] && . ~/.config/znt/n-history.conf
+
+local list
+local selected
+
+NLIST_REMEMBER_STATE=0
+
+list=( "$history[@]" )
+list=( "${(@M)list:#(#i)*$1*}" )
+
+if [ "$#list" -eq 0 ]; then
+    echo "No matching history entries"
+    return 1
+fi
+
+local NLIST_GREP_STRING="$1"
+local NLIST_REPLACE_NEWLINES="1"
+n-list "${list[@]}"
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 
 if [ "$REPLY" -gt 0 ]; then
     selected="$reply[REPLY]"
     # ZLE?
     if [ "${(t)CURSOR}" = "integer-local-special" ]; then
+<<<<<<< HEAD
         zle .redisplay
         zle .kill-buffer
         LBUFFER+="$selected"
@@ -347,6 +372,13 @@ if [ "$REPLY" -gt 0 ]; then
         [ "$active_view" = "0" ] && print -r -- "$selected" >> "$private_history_db"
     else
         print -zr -- "$selected"
+=======
+        zle redisplay
+        zle kill-buffer
+        zle -U "$selected"
+    else
+        print -zr "$selected"
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
     fi
 else
     [ "${(t)CURSOR}" = "integer-local-special" ] && zle redisplay

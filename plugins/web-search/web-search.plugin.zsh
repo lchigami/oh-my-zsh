@@ -10,7 +10,10 @@ function web_search() {
     bing        "https://www.bing.com/search?q="
     yahoo       "https://search.yahoo.com/search?p="
     duckduckgo  "https://www.duckduckgo.com/?q="
+<<<<<<< HEAD
     startpage   "https://www.startpage.com/do/search?q="
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
     yandex      "https://yandex.ru/yandsearch?text="
     github      "https://github.com/search?q="
     baidu       "https://www.baidu.com/s?wd="
@@ -42,7 +45,10 @@ alias bing='web_search bing'
 alias google='web_search google'
 alias yahoo='web_search yahoo'
 alias ddg='web_search duckduckgo'
+<<<<<<< HEAD
 alias sp='web_search startpage'
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 alias yandex='web_search yandex'
 alias github='web_search github'
 alias baidu='web_search baidu'

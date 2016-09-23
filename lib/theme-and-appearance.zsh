@@ -11,9 +11,15 @@ then
     # otherwise, leave ls as is, because NetBSD's ls doesn't support -G
     gls --color -d . &>/dev/null 2>&1 && alias ls='gls --color=tty'
   elif [[ "$(uname -s)" == "OpenBSD" ]]; then
+<<<<<<< HEAD
     # On OpenBSD, "gls" (ls from GNU coreutils) and "colorls" (ls from base,
     # with color and multibyte support) are available from ports.  "colorls"
     # will be installed on purpose and can't be pulled in by installing
+=======
+    # On OpenBSD, "gls" (ls from GNU coreutils) and "colorls" (ls from base, 
+    # with color and multibyte support) are available from ports.  "colorls"  
+    # will be installed on purpose and can't be pulled in by installing 
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
     # coreutils, so prefer it to "gls".
     gls --color -d . &>/dev/null 2>&1 && alias ls='gls --color=tty'
     colorls -G -d . &>/dev/null 2>&1 && alias ls='colorls -G'
@@ -22,8 +28,15 @@ then
   fi
 fi
 
+<<<<<<< HEAD
 setopt auto_cd
 setopt multios
+=======
+#setopt no_beep
+setopt auto_cd
+setopt multios
+setopt cdablevars
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 
 if [[ x$WINDOW != x ]]
 then

@@ -13,8 +13,11 @@ function _rails_command () {
 function _rake_command () {
   if [ -e "bin/rake" ]; then
     bin/rake $@
+<<<<<<< HEAD
   elif type bundle &> /dev/null && [ -e "Gemfile" ]; then
     bundle exec rake $@
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
   else
     command rake $@
   fi
@@ -57,7 +60,10 @@ alias rdrs='rake db:reset'
 alias rdtc='rake db:test:clone'
 alias rdtp='rake db:test:prepare'
 alias rdmtc='rake db:migrate db:test:clone'
+<<<<<<< HEAD
 alias rdsl='rake db:schema:load'
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 alias rlc='rake log:clear'
 alias rn='rake notes'
 alias rr='rake routes'

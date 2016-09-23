@@ -22,7 +22,11 @@ fi
 # Set ZSH_CACHE_DIR to the path where cache files should be created
 # or else we will use the default cache/
 if [[ -z "$ZSH_CACHE_DIR" ]]; then
+<<<<<<< HEAD
   ZSH_CACHE_DIR="$ZSH/cache"
+=======
+  ZSH_CACHE_DIR="$ZSH/cache/"
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 fi
 
 

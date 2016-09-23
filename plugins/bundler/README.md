@@ -6,7 +6,10 @@
   - `bl` aliased to `bundle list`
   - `bp` aliased to `bundle package`
   - `bo` aliased to `bundle open`
+<<<<<<< HEAD
   - `bout` aliased to `bundle outdated`
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
   - `bu` aliased to `bundle update`
   - `bi` aliased to `bundle install --jobs=<cpu core count>` (only for bundler `>= 1.4.0`)
 - adds a wrapper for common gems:

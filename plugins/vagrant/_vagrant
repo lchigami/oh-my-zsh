@@ -26,12 +26,18 @@ _1st_arguments=(
     'rsync:Syncs rsync synced folders to remote machine'
     'rsync-auto:Syncs rsync synced folders automatically when files change'
     'share:Shares your Vagrant environment with anyone in the world'
+<<<<<<< HEAD
     'snapshot:Manage snapshots with the guest machine'
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
     'ssh:SSH into the currently running environment'
     'ssh-config:Outputs .ssh/config valid syntax for connecting to this environment via ssh'
     'status:Shows the status of the current Vagrant environment'
     'suspend:Suspends the currently running vagrant environment'
+<<<<<<< HEAD
     'snapshot:Used to manage snapshots with the guest machine'
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
     'up:Creates the vagrant environment'
     'version:Prints current and latest Vagrant version'
     '--help:[TASK] Describe available tasks or one specific task'

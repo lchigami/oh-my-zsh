@@ -1,5 +1,14 @@
+<<<<<<< HEAD
 # Open the current directory in a Finder window
 alias ofd='open_command $PWD'
+=======
+# ------------------------------------------------------------------------------
+#          FILE:  osx.plugin.zsh
+#   DESCRIPTION:  oh-my-zsh plugin file.
+#        AUTHOR:  Sorin Ionescu (sorin.ionescu@gmail.com)
+#       VERSION:  1.1.0
+# ------------------------------------------------------------------------------
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 
 function _omz_osx_get_frontmost_app() {
   local the_app=$(
@@ -42,6 +51,7 @@ EOF
       end tell
 EOF
 
+<<<<<<< HEAD
   elif [[ "$the_app" == 'iTerm2' ]]; then
       osascript <<EOF
         tell application "iTerm2"
@@ -52,6 +62,8 @@ EOF
         end tell
 EOF
 
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
   else
     echo "tab: unsupported terminal app: $the_app"
     false
@@ -79,6 +91,7 @@ function vsplit_tab() {
       end tell
 EOF
 
+<<<<<<< HEAD
   elif [[ "$the_app" == 'iTerm2' ]]; then
       osascript <<EOF
         tell application "iTerm2"
@@ -92,6 +105,8 @@ EOF
         end tell
 EOF
 
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
   else
     echo "$0: unsupported terminal app: $the_app" >&2
     false
@@ -119,6 +134,7 @@ function split_tab() {
       end tell
 EOF
 
+<<<<<<< HEAD
   elif [[ "$the_app" == 'iTerm2' ]]; then
       osascript <<EOF
         tell application "iTerm2"
@@ -132,6 +148,8 @@ EOF
         end tell
 EOF
 
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
   else
     echo "$0: unsupported terminal app: $the_app" >&2
     false
@@ -175,7 +193,10 @@ function quick-look() {
 function man-preview() {
   man -t "$@" | open -f -a Preview
 }
+<<<<<<< HEAD
 compdef _man man-preview
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 
 function vncviewer() {
   open vnc://$@
@@ -260,7 +281,10 @@ EOF
 	esac
 	osascript -e "tell application \"iTunes\" to $opt"
 }
+<<<<<<< HEAD
 
 # Show/hide hidden files in the Finder
 alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac

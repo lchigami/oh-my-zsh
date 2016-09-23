@@ -1,6 +1,7 @@
 # ZSH Theme - Preview: http://gyazo.com/8becc8a7ed5ab54a0262a470555c3eed.png
 local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
+<<<<<<< HEAD
 
 if [[ $UID -eq 0 ]]; then
     local user_host='%{$terminfo[bold]$fg[red]%}%n@%m%{$reset_color%}'
@@ -8,6 +9,9 @@ else
     local user_host='%{$terminfo[bold]$fg[green]%}%n@%m%{$reset_color%}'
 fi
 
+=======
+local user_host='%{$terminfo[bold]$fg[green]%}%n@%m%{$reset_color%}'
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 local current_dir='%{$terminfo[bold]$fg[blue]%} %~%{$reset_color%}'
 local rvm_ruby=''
 if which rvm-prompt &> /dev/null; then

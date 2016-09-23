@@ -38,11 +38,15 @@ function jira() {
     _jira_query $@
   elif [[ "$action" == "dashboard" ]]; then
     echo "Opening dashboard"
+<<<<<<< HEAD
     if [[ "$JIRA_RAPID_BOARD" == "true" ]]; then
       open_command "${jira_url}/secure/RapidBoard.jspa"
     else
       open_command "${jira_url}/secure/Dashboard.jspa"
     fi
+=======
+    open_command "${jira_url}/secure/Dashboard.jspa"
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
   elif [[ "$action" == "dumpconfig" ]]; then
     echo "JIRA_URL=$jira_url"
     echo "JIRA_PREFIX=$jira_prefix"
@@ -103,3 +107,7 @@ function _jira_query() {
   query="${lookup}+%3D+%22${jira_name}%22+AND+resolution+%3D+unresolved+ORDER+BY+priority+DESC%2C+created+ASC"
   open_command "${jira_url}/secure/IssueNavigator.jspa?reset=true&jqlQuery=${query}"
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac

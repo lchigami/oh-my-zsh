@@ -22,6 +22,7 @@ bureau_git_branch () {
   echo "${ref#refs/heads/}"
 }
 
+<<<<<<< HEAD
 bureau_git_status() {
   _STATUS=""
 
@@ -60,6 +61,36 @@ bureau_git_status() {
     _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_STASHED"
   fi
 
+=======
+bureau_git_status () {
+  _INDEX=$(command git status --porcelain -b 2> /dev/null)
+  _STATUS=""
+  if $(echo "$_INDEX" | grep '^[AMRD]. ' &> /dev/null); then
+    _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_STAGED"
+  fi
+  if $(echo "$_INDEX" | grep '^.[MTD] ' &> /dev/null); then
+    _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_UNSTAGED"
+  fi
+  if $(echo "$_INDEX" | command grep -E '^\?\? ' &> /dev/null); then
+    _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_UNTRACKED"
+  fi
+  if $(echo "$_INDEX" | grep '^UU ' &> /dev/null); then
+    _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_UNMERGED"
+  fi
+  if $(command git rev-parse --verify refs/stash >/dev/null 2>&1); then
+    _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_STASHED"
+  fi
+  if $(echo "$_INDEX" | grep '^## .*ahead' &> /dev/null); then
+    _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_AHEAD"
+  fi
+  if $(echo "$_INDEX" | grep '^## .*behind' &> /dev/null); then
+    _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_BEHIND"
+  fi
+  if $(echo "$_INDEX" | grep '^## .*diverged' &> /dev/null); then
+    _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_DIVERGED"
+  fi
+
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
   echo $_STATUS
 }
 
@@ -94,10 +125,17 @@ _LIBERTY="$_LIBERTY%{$reset_color%}"
 get_space () {
   local STR=$1$2
   local zero='%([BSUbfksu]|([FB]|){*})'
+<<<<<<< HEAD
   local LENGTH=${#${(S%%)STR//$~zero/}}
   local SPACES=""
   (( LENGTH = ${COLUMNS} - $LENGTH - 1))
 
+=======
+  local LENGTH=${#${(S%%)STR//$~zero/}} 
+  local SPACES=""
+  (( LENGTH = ${COLUMNS} - $LENGTH - 1))
+  
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
   for i in {0..$LENGTH}
     do
       SPACES="$SPACES "
@@ -111,7 +149,11 @@ _1RIGHT="[%*] "
 
 bureau_precmd () {
   _1SPACES=`get_space $_1LEFT $_1RIGHT`
+<<<<<<< HEAD
   print
+=======
+  print 
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
   print -rP "$_1LEFT$_1SPACES$_1RIGHT"
 }
 

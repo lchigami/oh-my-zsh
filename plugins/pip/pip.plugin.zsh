@@ -76,6 +76,9 @@ zsh-pip-test-clean-packages() {
         echo "the djangopypi2 index is fine"
     fi
 }
+<<<<<<< HEAD
 
 alias pip="noglob pip" # allows square brackets for pip command invocation
 
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac

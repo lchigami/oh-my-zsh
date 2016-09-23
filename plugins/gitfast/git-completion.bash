@@ -10,13 +10,17 @@
 #    *) local and remote tag names
 #    *) .git/remotes file names
 #    *) git 'subcommands'
+<<<<<<< HEAD
 #    *) git email aliases for git-send-email
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 #    *) tree paths within 'ref:path/to/file' expressions
 #    *) file paths within current working directory and index
 #    *) common --long-options
 #
 # To use these routines:
 #
+<<<<<<< HEAD
 #    1) Copy this file to somewhere (e.g. ~/.git-completion.bash).
 #    2) Add the following line to your .bashrc/.zshrc:
 #        source ~/.git-completion.bash
@@ -28,6 +32,13 @@
 # completion style.  For example '!f() { : git commit ; ... }; f' will
 # tell the completion to use commit completion.  This also works with aliases
 # of form "!sh -c '...'".  For example, "!sh -c ': git commit ; ... '".
+=======
+#    1) Copy this file to somewhere (e.g. ~/.git-completion.sh).
+#    2) Add the following line to your .bashrc/.zshrc:
+#        source ~/.git-completion.sh
+#    3) Consider changing your PS1 to also show the current branch,
+#       see git-prompt.sh for details.
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 
 case "$COMP_WORDBREAKS" in
 *:*) : great ;;
@@ -187,7 +198,11 @@ fi
 
 __gitcompappend ()
 {
+<<<<<<< HEAD
 	local x i=${#COMPREPLY[@]}
+=======
+	local i=${#COMPREPLY[@]}
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 	for x in $1; do
 		if [[ "$x" == "$3"* ]]; then
 			COMPREPLY[i++]="$2$x$4"
@@ -282,12 +297,25 @@ __gitcomp_file ()
 # argument, and using the options specified in the second argument.
 __git_ls_files_helper ()
 {
+<<<<<<< HEAD
 	if [ "$2" == "--committable" ]; then
 		git -C "$1" diff-index --name-only --relative HEAD
 	else
 		# NOTE: $2 is not quoted in order to support multiple options
 		git -C "$1" ls-files --exclude-standard $2
 	fi 2>/dev/null
+=======
+	(
+		test -n "${CDPATH+set}" && unset CDPATH
+		cd "$1"
+		if [ "$2" == "--committable" ]; then
+			git diff-index --name-only --relative HEAD
+		else
+			# NOTE: $2 is not quoted in order to support multiple options
+			git ls-files --exclude-standard $2
+		fi
+	) 2>/dev/null
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 }
 
 
@@ -385,8 +413,12 @@ __git_refs ()
 		;;
 	*)
 		echo "HEAD"
+<<<<<<< HEAD
 		git for-each-ref --format="%(refname:short)" -- \
 			"refs/remotes/$dir/" 2>/dev/null | sed -e "s#^$dir/##"
+=======
+		git for-each-ref --format="%(refname:short)" -- "refs/remotes/$dir/" | sed -e "s#^$dir/##"
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 		;;
 	esac
 }
@@ -412,9 +444,18 @@ __git_refs_remotes ()
 
 __git_remotes ()
 {
+<<<<<<< HEAD
 	local d="$(__gitdir)"
 	test -d "$d/remotes" && ls -1 "$d/remotes"
 	git --git-dir="$d" remote
+=======
+	local i IFS=$'\n' d="$(__gitdir)"
+	test -d "$d/remotes" && ls -1 "$d/remotes"
+	for i in $(git --git-dir="$d" config --get-regexp 'remote\..*\.url' 2>/dev/null); do
+		i="${i#remote.}"
+		echo "${i/.url*/}"
+	done
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 }
 
 __git_list_merge_strategies ()
@@ -517,7 +558,11 @@ __git_complete_index_file ()
 		;;
 	esac
 
+<<<<<<< HEAD
 	__gitcomp_file "$(__git_index_files "$1" ${pfx:+"$pfx"})" "$pfx" "$cur_"
+=======
+	__gitcomp_file "$(__git_index_files "$1" "$pfx")" "$pfx" "$cur_"
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 }
 
 __git_complete_file ()
@@ -664,11 +709,18 @@ __git_list_porcelain_commands ()
 		check-mailmap)    : plumbing;;
 		check-ref-format) : plumbing;;
 		checkout-index)   : plumbing;;
+<<<<<<< HEAD
 		column)           : internal helper;;
 		commit-tree)      : plumbing;;
 		count-objects)    : infrequent;;
 		credential)       : credentials;;
 		credential-*)     : credentials helper;;
+=======
+		commit-tree)      : plumbing;;
+		count-objects)    : infrequent;;
+		credential-cache) : credentials helper;;
+		credential-store) : credentials helper;;
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 		cvsexportcommit)  : export;;
 		cvsimport)        : import;;
 		cvsserver)        : daemon;;
@@ -737,10 +789,15 @@ __git_list_porcelain_commands ()
 __git_porcelain_commands=
 __git_compute_porcelain_commands ()
 {
+<<<<<<< HEAD
+=======
+	__git_compute_all_commands
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 	test -n "$__git_porcelain_commands" ||
 	__git_porcelain_commands=$(__git_list_porcelain_commands)
 }
 
+<<<<<<< HEAD
 # Lists all set config variables starting with the given section prefix,
 # with the prefix removed.
 __git_get_config_variables ()
@@ -754,11 +811,36 @@ __git_get_config_variables ()
 __git_pretty_aliases ()
 {
 	__git_get_config_variables "pretty"
+=======
+__git_pretty_aliases ()
+{
+	local i IFS=$'\n'
+	for i in $(git --git-dir="$(__gitdir)" config --get-regexp "pretty\..*" 2>/dev/null); do
+		case "$i" in
+		pretty.*)
+			i="${i#pretty.}"
+			echo "${i/ */}"
+			;;
+		esac
+	done
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 }
 
 __git_aliases ()
 {
+<<<<<<< HEAD
 	__git_get_config_variables "alias"
+=======
+	local i IFS=$'\n'
+	for i in $(git --git-dir="$(__gitdir)" config --get-regexp "alias\..*" 2>/dev/null); do
+		case "$i" in
+		alias.*)
+			i="${i#alias.}"
+			echo "${i/ */}"
+			;;
+		esac
+	done
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 }
 
 # __git_aliased_command requires 1 argument
@@ -776,10 +858,13 @@ __git_aliased_command ()
 		-*)	: option ;;
 		*=*)	: setting env ;;
 		git)	: git itself ;;
+<<<<<<< HEAD
 		\(\))   : skip parens of shell function definition ;;
 		{)	: skip start of shell helper function ;;
 		:)	: skip null command ;;
 		\'*)	: skip opening quote after sh -c ;;
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 		*)
 			echo "$word"
 			return
@@ -972,7 +1057,11 @@ _git_branch ()
 
 	case "$cur" in
 	--set-upstream-to=*)
+<<<<<<< HEAD
 		__gitcomp_nl "$(__git_refs)" "" "${cur##--set-upstream-to=}"
+=======
+		__gitcomp "$(__git_refs)" "" "${cur##--set-upstream-to=}"
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 		;;
 	--*)
 		__gitcomp "
@@ -1040,7 +1129,11 @@ _git_checkout ()
 
 _git_cherry ()
 {
+<<<<<<< HEAD
 	__gitcomp_nl "$(__git_refs)"
+=======
+	__gitcomp "$(__git_refs)"
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 }
 
 _git_cherry_pick ()
@@ -1109,7 +1202,11 @@ _git_commit ()
 
 	case "$cur" in
 	--cleanup=*)
+<<<<<<< HEAD
 		__gitcomp "default scissors strip verbatim whitespace
+=======
+		__gitcomp "default strip verbatim whitespace
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 			" "" "${cur##--cleanup=}"
 		return
 		;;
@@ -1164,12 +1261,21 @@ __git_diff_common_options="--stat --numstat --shortstat --summary
 			--full-index --binary --abbrev --diff-filter=
 			--find-copies-harder
 			--text --ignore-space-at-eol --ignore-space-change
+<<<<<<< HEAD
 			--ignore-all-space --ignore-blank-lines --exit-code
 			--quiet --ext-diff --no-ext-diff
 			--no-prefix --src-prefix= --dst-prefix=
 			--inter-hunk-context=
 			--patience --histogram --minimal
 			--raw --word-diff --word-diff-regex=
+=======
+			--ignore-all-space --exit-code --quiet --ext-diff
+			--no-ext-diff
+			--no-prefix --src-prefix= --dst-prefix=
+			--inter-hunk-context=
+			--patience --histogram --minimal
+			--raw --word-diff
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 			--dirstat --dirstat= --dirstat-by-file
 			--dirstat-by-file= --cumulative
 			--diff-algorithm=
@@ -1196,7 +1302,11 @@ _git_diff ()
 }
 
 __git_mergetools_common="diffuse diffmerge ecmerge emerge kdiff3 meld opendiff
+<<<<<<< HEAD
 			tkdiff vimdiff gvimdiff xxdiff araxis p4merge bc codecompare
+=======
+			tkdiff vimdiff gvimdiff xxdiff araxis p4merge bc3 codecompare
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 "
 
 _git_difftool ()
@@ -1220,20 +1330,29 @@ _git_difftool ()
 	__git_complete_revlist_file
 }
 
+<<<<<<< HEAD
 __git_fetch_recurse_submodules="yes on-demand no"
 
 __git_fetch_options="
 	--quiet --verbose --append --upload-pack --force --keep --depth=
 	--tags --no-tags --all --prune --dry-run --recurse-submodules=
+=======
+__git_fetch_options="
+	--quiet --verbose --append --upload-pack --force --keep --depth=
+	--tags --no-tags --all --prune --dry-run
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 "
 
 _git_fetch ()
 {
 	case "$cur" in
+<<<<<<< HEAD
 	--recurse-submodules=*)
 		__gitcomp "$__git_fetch_recurse_submodules" "" "${cur##--recurse-submodules=}"
 		return
 		;;
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 	--*)
 		__gitcomp "$__git_fetch_options"
 		return
@@ -1297,7 +1416,11 @@ _git_gitk ()
 }
 
 __git_match_ctag() {
+<<<<<<< HEAD
 	awk "/^${1//\//\\/}/ { print \$1 }" "$2"
+=======
+	awk "/^${1////\\/}/ { print \$1 }" "$2"
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 }
 
 _git_grep ()
@@ -1312,7 +1435,10 @@ _git_grep ()
 			--full-name --line-number
 			--extended-regexp --basic-regexp --fixed-strings
 			--perl-regexp
+<<<<<<< HEAD
 			--threads
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 			--files-with-matches --name-only
 			--files-without-match
 			--max-depth
@@ -1418,7 +1544,11 @@ __git_log_gitk_options="
 # Options that go well for log and shortlog (not gitk)
 __git_log_shortlog_options="
 	--author= --committer= --grep=
+<<<<<<< HEAD
 	--all-match --invert-grep
+=======
+	--all-match
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 "
 
 __git_log_pretty_formats="oneline short medium full fuller email raw format:"
@@ -1444,7 +1574,11 @@ _git_log ()
 		return
 		;;
 	--decorate=*)
+<<<<<<< HEAD
 		__gitcomp "full short no" "" "${cur##--decorate=}"
+=======
+		__gitcomp "long short" "" "${cur##--decorate=}"
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 		return
 		;;
 	--*)
@@ -1457,7 +1591,10 @@ _git_log ()
 			--abbrev-commit --abbrev=
 			--relative-date --date=
 			--pretty= --format= --oneline
+<<<<<<< HEAD
 			--show-signature
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 			--cherry-pick
 			--graph
 			--decorate --decorate=
@@ -1473,12 +1610,18 @@ _git_log ()
 	__git_complete_revlist
 }
 
+<<<<<<< HEAD
 # Common merge options shared by git-merge(1) and git-pull(1).
 __git_merge_options="
 	--no-commit --no-stat --log --no-log --squash --strategy
 	--commit --stat --no-squash --ff --no-ff --ff-only --edit --no-edit
 	--verify-signatures --no-verify-signatures --gpg-sign
 	--quiet --verbose --progress --no-progress
+=======
+__git_merge_options="
+	--no-commit --no-stat --log --no-log --squash --strategy
+	--commit --stat --no-squash --ff --no-ff --ff-only --edit --no-edit
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 "
 
 _git_merge ()
@@ -1487,8 +1630,12 @@ _git_merge ()
 
 	case "$cur" in
 	--*)
+<<<<<<< HEAD
 		__gitcomp "$__git_merge_options
 			--rerere-autoupdate --no-rerere-autoupdate --abort"
+=======
+		__gitcomp "$__git_merge_options"
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 		return
 	esac
 	__gitcomp_nl "$(__git_refs)"
@@ -1594,10 +1741,13 @@ _git_pull ()
 	__git_complete_strategy && return
 
 	case "$cur" in
+<<<<<<< HEAD
 	--recurse-submodules=*)
 		__gitcomp "$__git_fetch_recurse_submodules" "" "${cur##--recurse-submodules=}"
 		return
 		;;
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 	--*)
 		__gitcomp "
 			--rebase --no-rebase
@@ -1610,6 +1760,7 @@ _git_pull ()
 	__git_complete_remote_or_refspec
 }
 
+<<<<<<< HEAD
 __git_push_recurse_submodules="check on-demand"
 
 __git_complete_force_with_lease ()
@@ -1628,23 +1779,29 @@ __git_complete_force_with_lease ()
 	esac
 }
 
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 _git_push ()
 {
 	case "$prev" in
 	--repo)
 		__gitcomp_nl "$(__git_remotes)"
 		return
+<<<<<<< HEAD
 		;;
 	--recurse-submodules)
 		__gitcomp "$__git_push_recurse_submodules"
 		return
 		;;
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 	esac
 	case "$cur" in
 	--repo=*)
 		__gitcomp_nl "$(__git_remotes)" "" "${cur##--repo=}"
 		return
 		;;
+<<<<<<< HEAD
 	--recurse-submodules=*)
 		__gitcomp "$__git_push_recurse_submodules" "" "${cur##--recurse-submodules=}"
 		return
@@ -1659,6 +1816,12 @@ _git_push ()
 			--quiet --prune --delete --follow-tags
 			--receive-pack= --repo= --set-upstream
 			--force-with-lease --force-with-lease= --recurse-submodules=
+=======
+	--*)
+		__gitcomp "
+			--all --mirror --tags --dry-run --force --verbose
+			--receive-pack= --repo= --set-upstream
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 		"
 		return
 		;;
@@ -1669,10 +1832,14 @@ _git_push ()
 _git_rebase ()
 {
 	local dir="$(__gitdir)"
+<<<<<<< HEAD
 	if [ -f "$dir"/rebase-merge/interactive ]; then
 		__gitcomp "--continue --skip --abort --edit-todo"
 		return
 	elif [ -d "$dir"/rebase-apply ] || [ -d "$dir"/rebase-merge ]; then
+=======
+	if [ -d "$dir"/rebase-apply ] || [ -d "$dir"/rebase-merge ]; then
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 		__gitcomp "--continue --skip --abort"
 		return
 	fi
@@ -1688,12 +1855,16 @@ _git_rebase ()
 			--preserve-merges --stat --no-stat
 			--committer-date-is-author-date --ignore-date
 			--ignore-whitespace --whitespace=
+<<<<<<< HEAD
 			--autosquash --no-autosquash
 			--fork-point --no-fork-point
 			--autostash --no-autostash
 			--verify --no-verify
 			--keep-empty --root --force-rebase --no-ff
 			--exec
+=======
+			--autosquash --fork-point --no-fork-point
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 			"
 
 		return
@@ -1718,6 +1889,7 @@ __git_send_email_suppresscc_options="author self cc bodycc sob cccmd body all"
 
 _git_send_email ()
 {
+<<<<<<< HEAD
 	case "$prev" in
 	--to|--cc|--bcc|--from)
 		__gitcomp "
@@ -1727,6 +1899,8 @@ _git_send_email ()
 		;;
 	esac
 
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 	case "$cur" in
 	--confirm=*)
 		__gitcomp "
@@ -1751,12 +1925,15 @@ _git_send_email ()
 			" "" "${cur##--thread=}"
 		return
 		;;
+<<<<<<< HEAD
 	--to=*|--cc=*|--bcc=*|--from=*)
 		__gitcomp "
 		$(git --git-dir="$(__gitdir)" send-email --dump-aliases 2>/dev/null)
 		" "" "${cur#--*=}"
 		return
 		;;
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 	--*)
 		__gitcomp "--annotate --bcc --cc --cc-cmd --chain-reply-to
 			--compose --confirm= --dry-run --envelope-sender
@@ -1798,7 +1975,19 @@ __git_config_get_set_variables ()
 		c=$((--c))
 	done
 
+<<<<<<< HEAD
 	git --git-dir="$(__gitdir)" config $config_file --name-only --list 2>/dev/null
+=======
+	git --git-dir="$(__gitdir)" config $config_file --list 2>/dev/null |
+	while read -r line
+	do
+		case "$line" in
+		*.*=*)
+			echo "${line/=*/}"
+			;;
+		esac
+	done
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 }
 
 _git_config ()
@@ -1813,7 +2002,11 @@ _git_config ()
 		return
 		;;
 	branch.*.rebase)
+<<<<<<< HEAD
 		__gitcomp "false true preserve interactive"
+=======
+		__gitcomp "false true"
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 		return
 		;;
 	remote.pushdefault)
@@ -1883,10 +2076,13 @@ _git_config ()
 		__gitcomp "$__git_send_email_suppresscc_options"
 		return
 		;;
+<<<<<<< HEAD
 	sendemail.transferencoding)
 		__gitcomp "7bit 8bit quoted-printable base64"
 		return
 		;;
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 	--get|--get-all|--unset|--unset-all)
 		__gitcomp_nl "$(__git_config_get_set_variables)"
 		return
@@ -1903,7 +2099,10 @@ _git_config ()
 			--get --get-all --get-regexp
 			--add --unset --unset-all
 			--remove-section --rename-section
+<<<<<<< HEAD
 			--name-only
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 			"
 		return
 		;;
@@ -2022,7 +2221,10 @@ _git_config ()
 		color.status.changed
 		color.status.header
 		color.status.nobranch
+<<<<<<< HEAD
 		color.status.unmerged
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 		color.status.untracked
 		color.status.updated
 		color.ui
@@ -2060,7 +2262,10 @@ _git_config ()
 		core.sparseCheckout
 		core.symlinks
 		core.trustctime
+<<<<<<< HEAD
 		core.untrackedCache
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 		core.warnAmbiguousRefs
 		core.whitespace
 		core.worktree
@@ -2135,8 +2340,11 @@ _git_config ()
 		http.noEPSV
 		http.postBuffer
 		http.proxy
+<<<<<<< HEAD
 		http.sslCipherList
 		http.sslVersion
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 		http.sslCAInfo
 		http.sslCAPath
 		http.sslCert
@@ -2200,7 +2408,10 @@ _git_config ()
 		pull.octopus
 		pull.twohead
 		push.default
+<<<<<<< HEAD
 		push.followTags
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 		rebase.autosquash
 		rebase.stat
 		receive.autogc
@@ -2274,7 +2485,16 @@ _git_remote ()
 		__git_complete_remote_or_refspec
 		;;
 	update)
+<<<<<<< HEAD
 		__gitcomp "$(__git_get_config_variables "remotes")"
+=======
+		local i c='' IFS=$'\n'
+		for i in $(git --git-dir="$(__gitdir)" config --get-regexp "remotes\..*" 2>/dev/null); do
+			i="${i#remotes.}"
+			c="$c ${i/ */}"
+		done
+		__gitcomp "$c"
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 		;;
 	*)
 		;;
@@ -2301,11 +2521,14 @@ _git_reset ()
 
 _git_revert ()
 {
+<<<<<<< HEAD
 	local dir="$(__gitdir)"
 	if [ -f "$dir"/REVERT_HEAD ]; then
 		__gitcomp "--continue --quit --abort"
 		return
 	fi
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 	case "$cur" in
 	--*)
 		__gitcomp "--edit --mainline --no-edit --no-commit --signoff"
@@ -2360,7 +2583,10 @@ _git_show ()
 		;;
 	--*)
 		__gitcomp "--pretty= --format= --abbrev-commit --oneline
+<<<<<<< HEAD
 			--show-signature
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 			$__git_diff_common_options
 			"
 		return
@@ -2374,7 +2600,11 @@ _git_show_branch ()
 	case "$cur" in
 	--*)
 		__gitcomp "
+<<<<<<< HEAD
 			--all --remotes --topo-order --date-order --current --more=
+=======
+			--all --remotes --topo-order --current --more=
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 			--list --independent --merge-base --no-name
 			--color --no-color
 			--sha1-name --sparse --topics --reflog
@@ -2387,7 +2617,11 @@ _git_show_branch ()
 
 _git_stash ()
 {
+<<<<<<< HEAD
 	local save_opts='--all --keep-index --no-keep-index --quiet --patch --include-untracked'
+=======
+	local save_opts='--keep-index --no-keep-index --quiet --patch'
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 	local subcommands='save list show apply clear drop pop create branch'
 	local subcommand="$(__git_find_on_cmdline "$subcommands")"
 	if [ -z "$subcommand" ]; then
@@ -2409,6 +2643,7 @@ _git_stash ()
 		apply,--*|pop,--*)
 			__gitcomp "--index --quiet"
 			;;
+<<<<<<< HEAD
 		drop,--*)
 			__gitcomp "--quiet"
 			;;
@@ -2423,6 +2658,11 @@ _git_stash ()
 			fi
 			;;
 		show,*|apply,*|drop,*|pop,*)
+=======
+		show,--*|drop,--*|branch,--*)
+			;;
+		show,*|apply,*|drop,*|pop,*|branch,*)
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 			__gitcomp_nl "$(git --git-dir="$(__gitdir)" stash list \
 					| sed -n -e 's/:.*//p')"
 			;;
@@ -2577,6 +2817,7 @@ _git_tag ()
 		__gitcomp_nl "$(__git_refs)"
 		;;
 	esac
+<<<<<<< HEAD
 
 	case "$cur" in
 	--*)
@@ -2587,6 +2828,8 @@ _git_tag ()
 			"
 		;;
 	esac
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 }
 
 _git_whatchanged ()
@@ -2642,7 +2885,10 @@ __git_main ()
 
 	local expansion=$(__git_aliased_command "$command")
 	if [ -n "$expansion" ]; then
+<<<<<<< HEAD
 		words[1]=$expansion
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 		completion_func="_git_${expansion//-/_}"
 		declare -f $completion_func >/dev/null && $completion_func
 	fi

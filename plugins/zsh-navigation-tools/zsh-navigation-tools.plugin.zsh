@@ -15,6 +15,7 @@ if ! test -d "$CONFIG_DIR"; then
     mkdir "$CONFIG_DIR"
 fi
 
+<<<<<<< HEAD
 # 9 files
 set n-aliases.conf n-env.conf n-history.conf n-list.conf n-panelize.conf n-cd.conf n-functions.conf n-kill.conf n-options.conf
 
@@ -33,18 +34,37 @@ fi
 
 # Don't leave positional parameters being set
 set --
+=======
+set n-aliases.conf n-env.conf n-history.conf n-list.conf n-panelize.conf n-cd.conf n-functions.conf n-kill.conf n-options.conf
+
+for i; do
+    if ! test -f "$CONFIG_DIR/$i"; then
+        cp "$REPO_DIR/.config/znt/$i" "$CONFIG_DIR"
+    fi
+done
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 
 #
 # Load functions
 #
 
+<<<<<<< HEAD
 autoload n-aliases n-cd n-env n-functions n-history n-kill n-list n-list-draw n-list-input n-options n-panelize n-help
 autoload znt-usetty-wrapper znt-history-widget znt-cd-widget znt-kill-widget
 alias naliases=n-aliases ncd=n-cd nenv=n-env nfunctions=n-functions nhistory=n-history
 alias nkill=n-kill noptions=n-options npanelize=n-panelize nhelp=n-help
+=======
+autoload n-aliases n-cd n-env n-functions n-history n-kill n-list n-list-draw n-list-input n-options n-panelize
+autoload znt-usetty-wrapper znt-history-widget znt-cd-widget znt-kill-widget
+alias naliases=n-aliases ncd=n-cd nenv=n-env nfunctions=n-functions nhistory=n-history
+alias nkill=n-kill noptions=n-options npanelize=n-panelize
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 
 zle -N znt-history-widget
 bindkey '^R' znt-history-widget
 setopt AUTO_PUSHD HIST_IGNORE_DUPS PUSHD_IGNORE_DUPS
+<<<<<<< HEAD
 zstyle ':completion::complete:n-kill::bits' matcher 'r:|=** l:|=*'
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 

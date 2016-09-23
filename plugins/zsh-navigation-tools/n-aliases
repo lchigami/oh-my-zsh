@@ -16,8 +16,13 @@ local IFS="
 
 unset NLIST_COLORING_PATTERN
 
+<<<<<<< HEAD
 [ -f ~/.config/znt/n-list.conf ] && builtin source ~/.config/znt/n-list.conf
 [ -f ~/.config/znt/n-aliases.conf ] && builtin source ~/.config/znt/n-aliases.conf
+=======
+[ -f ~/.config/znt/n-list.conf ] && . ~/.config/znt/n-list.conf
+[ -f ~/.config/znt/n-aliases.conf ] && . ~/.config/znt/n-aliases.conf
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 
 local list
 local selected

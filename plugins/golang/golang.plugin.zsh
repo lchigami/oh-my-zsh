@@ -179,6 +179,7 @@ __go_tool_complete() {
 
 compdef __go_tool_complete go
 
+<<<<<<< HEAD
 # aliases: go<~>
 alias gob='go build'
 alias goc='go clean'
@@ -191,3 +192,7 @@ alias gol='go list'
 alias gor='go run'
 alias got='go test'
 alias gov='go vet'
+=======
+# aliases
+alias gfa='go fmt . ./...'
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac

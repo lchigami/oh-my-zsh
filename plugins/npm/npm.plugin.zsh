@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 (( $+commands[npm] )) && {
     __NPM_COMPLETION_FILE="${ZSH_CACHE_DIR}/npm_completion"
 
@@ -7,6 +8,9 @@
 
     source $__NPM_COMPLETION_FILE
 }
+=======
+eval "$(npm completion 2>/dev/null)"
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 
 # Install dependencies globally
 alias npmg="npm i -g "
@@ -25,6 +29,7 @@ alias npmD="npm i -D "
 # Execute command from node_modules folder based on current directory
 # i.e npmE gulp
 alias npmE='PATH="$(npm bin)":"$PATH"'
+<<<<<<< HEAD
 
 # Check which npm modules are outdated
 alias npmO="npm outdated"
@@ -35,3 +40,5 @@ alias npmst="npm start"
 # Run npm test
 alias npmt="npm test"
 
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac

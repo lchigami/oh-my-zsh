@@ -76,6 +76,7 @@ function git_current_branch() {
 
 # Gets the number of commits ahead from remote
 function git_commits_ahead() {
+<<<<<<< HEAD
   if command git rev-parse --git-dir &>/dev/null; then
     local commits="$(git rev-list --count @{upstream}..HEAD)"
     if [[ "$commits" != 0 ]]; then
@@ -91,6 +92,12 @@ function git_commits_behind() {
     if [[ "$commits" != 0 ]]; then
       echo "$ZSH_THEME_GIT_COMMITS_BEHIND_PREFIX$commits$ZSH_THEME_GIT_COMMITS_BEHIND_SUFFIX"
     fi
+=======
+  if $(echo "$(command git log @{upstream}..HEAD 2> /dev/null)" | grep '^commit' &> /dev/null); then
+    local COMMITS
+    COMMITS=$(command git log @{upstream}..HEAD | grep '^commit' | wc -l | tr -d ' ')
+    echo "$ZSH_THEME_GIT_COMMITS_AHEAD_PREFIX$COMMITS$ZSH_THEME_GIT_COMMITS_AHEAD_SUFFIX"
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
   fi
 }
 
@@ -165,6 +172,7 @@ function git_prompt_status() {
   if $(echo "$INDEX" | grep '^UU ' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_UNMERGED$STATUS"
   fi
+<<<<<<< HEAD
   if $(echo "$INDEX" | grep '^## [^ ]\+ .*ahead' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_AHEAD$STATUS"
   fi
@@ -172,6 +180,15 @@ function git_prompt_status() {
     STATUS="$ZSH_THEME_GIT_PROMPT_BEHIND$STATUS"
   fi
   if $(echo "$INDEX" | grep '^## [^ ]\+ .*diverged' &> /dev/null); then
+=======
+  if $(echo "$INDEX" | grep '^## .*ahead' &> /dev/null); then
+    STATUS="$ZSH_THEME_GIT_PROMPT_AHEAD$STATUS"
+  fi
+  if $(echo "$INDEX" | grep '^## .*behind' &> /dev/null); then
+    STATUS="$ZSH_THEME_GIT_PROMPT_BEHIND$STATUS"
+  fi
+  if $(echo "$INDEX" | grep '^## .*diverged' &> /dev/null); then
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
     STATUS="$ZSH_THEME_GIT_PROMPT_DIVERGED$STATUS"
   fi
   echo $STATUS
@@ -199,6 +216,7 @@ function git_compare_version() {
   echo 0
 }
 
+<<<<<<< HEAD
 # Outputs the name of the current user
 # Usage example: $(git_current_user_name)
 function git_current_user_name() {
@@ -211,6 +229,8 @@ function git_current_user_email() {
   command git config user.email 2>/dev/null
 }
 
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 # This is unlikely to change so make it all statically assigned
 POST_1_7_2_GIT=$(git_compare_version "1.7.2")
 # Clean up the namespace slightly by removing the checker function

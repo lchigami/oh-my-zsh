@@ -128,7 +128,10 @@ prompt_git() {
 }
 
 prompt_hg() {
+<<<<<<< HEAD
   (( $+commands[hg] )) || return
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
   local rev status
   if $(hg id >/dev/null 2>&1); then
     if $(hg prompt >/dev/null 2>&1); then

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 () {
   emulate -L zsh
 
@@ -24,3 +25,10 @@
     fi
   done
 }
+=======
+if which cask &> /dev/null; then
+  source $(dirname $(which cask))/../etc/cask_completion.zsh
+else
+  print "zsh cask plugin: cask not found"
+fi
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac

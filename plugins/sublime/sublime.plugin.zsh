@@ -56,6 +56,7 @@ elif [[ "$OSTYPE" = 'cygwin' ]]; then
 fi
 
 alias stt='st .'
+<<<<<<< HEAD
 
 find_project()
 {
@@ -85,3 +86,5 @@ find_project()
 }
 
 alias stp=find_project
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac

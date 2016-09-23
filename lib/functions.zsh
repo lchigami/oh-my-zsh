@@ -3,11 +3,19 @@ function zsh_stats() {
 }
 
 function uninstall_oh_my_zsh() {
+<<<<<<< HEAD
   env ZSH=$ZSH sh $ZSH/tools/uninstall.sh
 }
 
 function upgrade_oh_my_zsh() {
   env ZSH=$ZSH sh $ZSH/tools/upgrade.sh
+=======
+  env ZSH=$ZSH /bin/sh $ZSH/tools/uninstall.sh
+}
+
+function upgrade_oh_my_zsh() {
+  env ZSH=$ZSH /bin/sh $ZSH/tools/upgrade.sh
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 }
 
 function take() {

@@ -37,7 +37,11 @@ ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL="%{$fg[cyan]%}"
 function git_time_since_commit() {
     if git rev-parse --git-dir > /dev/null 2>&1; then
         # Only proceed if there is actually a commit.
+<<<<<<< HEAD
         if git log -n 1  > /dev/null 2>&1; then
+=======
+        if [[ $(git log 2>&1 > /dev/null | grep -c "^fatal: bad default revision") == 0 ]]; then
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
             # Get the last commit.
             last_commit=`git log --pretty=format:'%at' -1 2> /dev/null`
             now=`date +%s`

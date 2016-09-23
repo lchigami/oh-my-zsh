@@ -1,6 +1,10 @@
 # Zsh Navigation Tools
 
+<<<<<<< HEAD
 https://raw.githubusercontent.com/psprint/zsh-navigation-tools/master/doc/img/n-history2.png
+=======
+http://imageshack.com/a/img633/7967/ps6rKR.png
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 
 Set of tools like n-history – multi-word history searcher, n-cd – directory
 bookmark manager, n-kill – htop like kill utility, and more. Based on
@@ -32,6 +36,7 @@ to key combinations (no need for autoload when using Oh My Zsh):
 Oh My Zsh stores history into ~/.zsh_history. When you switch to OMZ you could
 want to copy your previous data (from e.g. ~/.zhistory) into the new location.
 
+<<<<<<< HEAD
 ## News
 
 * 30-04-2016
@@ -52,6 +57,8 @@ want to copy your previous data (from e.g. ~/.zhistory) into the new location.
        keywords (video: [https://youtu.be/DN9QqssAYB8](https://youtu.be/DN9QqssAYB8))
     3. Configuration option for doing instant selection in search mode
 
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 ## Introduction
 
 The tools are:
@@ -80,6 +87,7 @@ cursors. Other keys are:
 - Ctrl-w (in incremental search) - delete whole word
 - Ctrl-k (in incremental search) - delete whole line
 
+<<<<<<< HEAD
 ## Configuration
 
 `ZNT` has configuration files located in `~/.config/znt`. The files are:
@@ -139,6 +147,8 @@ znt_list_themes (array) - list of themes to try out with Ctrl-T, e.g. ( "white/b
 znt_list_instant_select - should pressing enter in search mode leave tool (0 or 1)
 ```
 
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 ## Programming
 
 The function n-list is used as follows:

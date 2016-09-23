@@ -10,7 +10,11 @@
 # - Configuration changes made at runtime are applied to all frames.
 
 
+<<<<<<< HEAD
 if "$ZSH/tools/require_tool.sh" emacs 24 2>/dev/null ; then
+=======
+if "$ZSH/tools/require_tool.sh" emacs 23 2>/dev/null ; then
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
     export EMACS_PLUGIN_LAUNCHER="$ZSH/plugins/emacs/emacsclient.sh"
 
     # set EDITOR if not already defined.
@@ -18,14 +22,23 @@ if "$ZSH/tools/require_tool.sh" emacs 24 2>/dev/null ; then
 
     alias emacs="$EMACS_PLUGIN_LAUNCHER --no-wait"
     alias e=emacs
+<<<<<<< HEAD
     # open terminal emacsclient
     alias te="$EMACS_PLUGIN_LAUNCHER -nw"
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 
     # same than M-x eval but from outside Emacs.
     alias eeval="$EMACS_PLUGIN_LAUNCHER --eval"
     # create a new X frame
     alias eframe='emacsclient --alternate-editor "" --create-frame'
 
+<<<<<<< HEAD
+=======
+    # to code all night long
+    alias emasc=emacs
+    alias emcas=emacs
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 
     # Write to standard output the path to the file
     # opened in the current buffer.

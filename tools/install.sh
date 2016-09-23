@@ -53,6 +53,14 @@ main() {
     echo "Error: git is not installed"
     exit 1
   }
+<<<<<<< HEAD
+=======
+  env git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git $ZSH || {
+    printf "Error: git clone of oh-my-zsh repo failed\n"
+    exit 1
+  }
+
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
   # The Windows (MSYS) Git is not compatible with normal use on cygwin
   if [ "$OSTYPE" = cygwin ]; then
     if git --version | grep msysgit > /dev/null; then
@@ -61,11 +69,14 @@ main() {
       exit 1
     fi
   fi
+<<<<<<< HEAD
   env git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git $ZSH || {
     printf "Error: git clone of oh-my-zsh repo failed\n"
     exit 1
   }
 
+=======
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
 
   printf "${BLUE}Looking for an existing zsh config...${NORMAL}\n"
   if [ -f ~/.zshrc ] || [ -h ~/.zshrc ]; then
@@ -80,6 +91,15 @@ main() {
   " ~/.zshrc > ~/.zshrc-omztemp
   mv -f ~/.zshrc-omztemp ~/.zshrc
 
+<<<<<<< HEAD
+=======
+  printf "${BLUE}Copying your current PATH and adding it to the end of ~/.zshrc for you.${NORMAL}\n"
+  sed "/export PATH=/ c\\
+  export PATH=\"$PATH\"
+  " ~/.zshrc > ~/.zshrc-omztemp
+  mv -f ~/.zshrc-omztemp ~/.zshrc
+
+>>>>>>> 03ba0359dc233d01d6994bc9cf062cfebffa1fac
   # If this user's login shell is not already "zsh", attempt to switch.
   TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
   if [ "$TEST_CURRENT_SHELL" != "zsh" ]; then
